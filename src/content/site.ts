@@ -26,10 +26,10 @@ export const booking = {
 }
 
 export const showreel = {
-  src: '/video/showreel.mp4',
+  /** Full showreel on the studio CDN. Streamed, always muted, enlarged in place with the icon on the card. */
+  src: 'https://kuartz-studio.b-cdn.net/kuartz%20studio%20june%202025.mp4',
+  /** First moments of the video, shown while it loads. */
   poster: '/video/poster.jpg',
-  // Generated stand-in loop. Replace both files in /public/video, then set to false.
-  placeholder: true,
 }
 
 export const company = {
@@ -45,7 +45,7 @@ export const company = {
   /** Sole member. */
   manager: 'Andrea Gauvreau',
   /** Public contact address. Required on the legal notice. */
-  email: TODO,
+  email: 'andrea@kuartz.studio',
   /** Delaware file number and registered agent: shown only when set. */
   filingNumber: undefined as string | undefined,
   registeredAgent: undefined as string | undefined,

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
 import { company, host } from '@/content/site'
@@ -63,7 +64,7 @@ export default function LegalNoticePage() {
         <div>
           <dt>Email</dt>
           <dd>
-            <Val>{company.email}</Val>
+            <Email />
           </dd>
         </div>
         {company.phone ? (
@@ -131,7 +132,7 @@ export default function LegalNoticePage() {
 
       <h2>Contact</h2>
       <p>
-        For any question about this site, write to <Val>{company.email}</Val>.
+        For any question about this site, write to <Email />.
       </p>
     </>
   )

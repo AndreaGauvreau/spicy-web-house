@@ -21,10 +21,10 @@ export function ExpandIcon({ className }: IconProps) {
   )
 }
 
-export function CloseIcon({ className }: IconProps) {
+export function CollapseIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
-      <path d="m3.5 3.5 9 9M12.5 3.5l-9 9" />
+      <path d="M13.5 2.5 9.5 6.5M9.5 6.5v-3M9.5 6.5h3M2.5 13.5l4-4M6.5 9.5v3M6.5 9.5h-3" />
     </svg>
   )
 }

@@ -1,19 +1,16 @@
 'use client'
 
-import { AnimatePresence, MotionConfig, motion, stagger, useReducedMotion } from 'motion/react'
+import { MotionConfig, motion, stagger, useReducedMotion } from 'motion/react'
 import Link from 'next/link'
-import { useCallback, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { booking, company, site } from '@/content/site'
 import { ClientLogos } from './ClientLogos'
 import { Logo } from './Logo'
 import { DURATION, EASE_OUT } from './motion'
-import { ReelLightbox } from './ReelLightbox'
 import { ShowreelCard } from './ShowreelCard'
 import styles from './home.module.css'
 
 export function Home({ year }: { year: number }) {
-  const [reelOpen, setReelOpen] = useState(false)
-  const close = useCallback(() => setReelOpen(false), [])
   const reduce = useReducedMotion()
 
   // One entrance for the whole page: every block rises 10px and fades in, 60 ms apart.
@@ -39,7 +36,7 @@ export function Home({ year }: { year: number }) {
     <MotionConfig reducedMotion="user">
       <motion.div id="page" className={styles.page} variants={page} initial="hidden" animate="show">
         <motion.header className={styles.top} variants={item}>
-          <h1 className={styles.brand}>
+          <h1 id="brand" className={styles.brand}>
             <Logo className={styles.brandLogo} label="Spicy Web House" />
             <span className="sr-only"> — web design and development studio</span>
           </h1>
@@ -48,7 +45,7 @@ export function Home({ year }: { year: number }) {
         <main className={styles.stage}>
           <div className={styles.stack}>
             <motion.div variants={item}>
-              <ShowreelCard paused={reelOpen} onOpen={() => setReelOpen(true)} />
+              <ShowreelCard />
             </motion.div>
 
             <motion.div variants={item} className={styles.ctaWrap}>
@@ -86,7 +83,6 @@ export function Home({ year }: { year: number }) {
         </footer>
       </motion.div>
 
-      <AnimatePresence>{reelOpen ? <ReelLightbox key="reel" onClose={close} /> : null}</AnimatePresence>
     </MotionConfig>
   )
 }

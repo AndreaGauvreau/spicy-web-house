@@ -21,7 +21,7 @@ Everything the site says lives in `src/content/`:
 | `site.ts` | Booking link, showreel files, company identity used by the legal pages |
 | `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the details shown in the card on hover |
 
-Replace the showreel with your own: put `showreel.mp4` and `poster.jpg` in `public/video/` (the current files are a generated stand-in), then set `showreel.placeholder` to `false`.
+The showreel is the full video on the studio CDN (`showreel.src`), streamed, always muted, in the card on the page. The icon on the card enlarges it in place (a scale from its bottom centre, like kuartz.studio). `public/video/poster.jpg` is the frame shown while it loads.
 
 Anything still set to `TODO` or `placeholder: true` shows as `[to be completed]` on the legal pages and is listed by:
 

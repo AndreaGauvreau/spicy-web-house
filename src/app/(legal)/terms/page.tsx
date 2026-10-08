@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
 import { company } from '@/content/site'
@@ -70,7 +71,7 @@ export default function TermsPage() {
 
       <h2>Contact</h2>
       <p>
-        Questions about these terms: <Val>{company.email}</Val>. Personal data is covered in the{' '}
+        Questions about these terms: <Email />. Personal data is covered in the{' '}
         <Link href="/privacy">privacy policy</Link>.
       </p>
     </>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
 import { booking, company, host } from '@/content/site'
@@ -25,7 +26,7 @@ export default function PrivacyPage() {
       <h2>Who is responsible</h2>
       <p>
         {company.legalName}, a Delaware limited liability company, <Val>{company.address}</Val>, is the controller of the data
-        described here. You can reach us at <Val>{company.email}</Val>.
+        described here. You can reach us at <Email />.
       </p>
       {company.euRepresentative ? (
         <p>Our representative in the European Union is {company.euRepresentative}.</p>
@@ -76,8 +77,8 @@ export default function PrivacyPage() {
 
       <h2>Transfers outside your country</h2>
       <p>
-        {company.legalName} is a U.S. company and our providers may process data in the United States or in other
-        countries. When data leaves the EEA or the United Kingdom, transfers rely on a recognised safeguard, such as the
+        Our hosting and scheduling providers are U.S. companies, so your data may be processed in the United States or
+        in other countries. When data leaves the EEA or the United Kingdom, transfers rely on a recognised safeguard, such as the
         EU–U.S. Data Privacy Framework or Standard Contractual Clauses.
       </p>
 
@@ -86,7 +87,7 @@ export default function PrivacyPage() {
         Depending on where you live, you can ask to access, correct, delete or export your data, to restrict or object
         to its use, and to withdraw consent you have given. California and other U.S. state residents have comparable
         rights to know, delete and correct, and the right not to be discriminated against for using them. To use any of
-        these rights, write to <Val>{company.email}</Val>; we answer within one month.
+        these rights, write to <Email />; we answer within one month.
       </p>
       <p>
         If you think we have not handled your data properly, you can complain to your local data protection authority
