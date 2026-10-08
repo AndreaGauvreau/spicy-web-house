@@ -36,16 +36,21 @@ export const company = {
   legalName: 'Spicy Web House LLC',
   tradeName: 'Spicy Web House',
   entity: 'Limited liability company (LLC)',
-  /** State (or country) where the LLC was formed, e.g. Wyoming. */
-  state: TODO,
-  /** Entity / file number on the state register. */
-  filingNumber: TODO,
-  registeredAgent: TODO,
-  registeredAddress: TODO,
+  /** State of formation. */
+  state: 'Delaware',
+  /** Address of record of the company (mailing address on the IRS documents). */
+  address: '604 Carson Dr, NT-00181, Bear, DE 19701, United States',
+  /** What the company does, as stated on the legal notice. */
+  activity: 'Web design and web development',
+  /** Sole member. */
+  manager: 'Andrea Gauvreau',
+  /** Public contact address. Required on the legal notice. */
+  email: TODO,
+  /** Delaware file number and registered agent: shown only when set. */
+  filingNumber: undefined as string | undefined,
+  registeredAgent: undefined as string | undefined,
   /** Where the business is actually run, if different. Leave undefined to hide. */
   operatingAddress: undefined as string | undefined,
-  manager: 'Andrea Gauvreau',
-  email: TODO,
   phone: undefined as string | undefined,
   /** EU VAT number or equivalent tax ID, only if you are registered. */
   vat: undefined as string | undefined,

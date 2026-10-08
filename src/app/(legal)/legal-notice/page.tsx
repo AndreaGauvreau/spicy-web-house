@@ -29,23 +29,27 @@ export default function LegalNoticePage() {
           </dd>
         </div>
         <div>
-          <dt>State file number</dt>
-          <dd>
-            <Val>{company.filingNumber}</Val>
-          </dd>
+          <dt>Activity</dt>
+          <dd>{company.activity}</dd>
         </div>
+        {company.filingNumber ? (
+          <div>
+            <dt>State file number</dt>
+            <dd>{company.filingNumber}</dd>
+          </div>
+        ) : null}
         <div>
-          <dt>Registered office</dt>
+          <dt>Address</dt>
           <dd>
-            <Val>{company.registeredAddress}</Val>
+            <Val>{company.address}</Val>
           </dd>
         </div>
-        <div>
-          <dt>Registered agent</dt>
-          <dd>
-            <Val>{company.registeredAgent}</Val>
-          </dd>
-        </div>
+        {company.registeredAgent ? (
+          <div>
+            <dt>Registered agent</dt>
+            <dd>{company.registeredAgent}</dd>
+          </div>
+        ) : null}
         {company.operatingAddress ? (
           <div>
             <dt>Operating address</dt>
@@ -53,7 +57,7 @@ export default function LegalNoticePage() {
           </div>
         ) : null}
         <div>
-          <dt>Manager and publication director</dt>
+          <dt>Sole member and publication director</dt>
           <dd>{company.manager}</dd>
         </div>
         <div>

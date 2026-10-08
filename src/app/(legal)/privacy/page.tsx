@@ -24,7 +24,7 @@ export default function PrivacyPage() {
 
       <h2>Who is responsible</h2>
       <p>
-        {company.legalName}, {company.entity}, <Val>{company.registeredAddress}</Val>, is the controller of the data
+        {company.legalName}, a Delaware limited liability company, <Val>{company.address}</Val>, is the controller of the data
         described here. You can reach us at <Val>{company.email}</Val>.
       </p>
       {company.euRepresentative ? (
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
 
       <h2>Transfers outside your country</h2>
       <p>
-        {company.legalName} operates from the United States and our providers may process data there or in other
+        {company.legalName} is a U.S. company and our providers may process data in the United States or in other
         countries. When data leaves the EEA or the United Kingdom, transfers rely on a recognised safeguard, such as the
         EU–U.S. Data Privacy Framework or Standard Contractual Clauses.
       </p>
