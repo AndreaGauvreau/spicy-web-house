@@ -17,12 +17,9 @@ export const site = {
   trusted: 'Trusted by leading companies',
 }
 
+/** The call to action opens an email to company.email. */
 export const booking = {
   label: 'Book a call',
-  // Cal.com, Calendly, SavvyCal… any scheduling link. Opens in a new tab, no embed, no cookies on our side.
-  url: 'https://cal.com/kuartz/15min-lp?utm_source=website&utm_medium=internal&overlayCalendar=true',
-  // Name shown in the privacy policy.
-  provider: 'Cal.com',
 }
 
 export const showreel = {

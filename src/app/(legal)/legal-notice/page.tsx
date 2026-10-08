@@ -113,9 +113,9 @@ export default function LegalNoticePage() {
 
       <h2>Third-party services and links</h2>
       <p>
-        The site links to third-party services, including the scheduling tool opened by the “Book a call” button.
-        Those services are run by their own providers under their own terms and privacy policies, and we are not
-        responsible for their content or practices.
+        The showreel is streamed by a third-party delivery network, and the site may link to other third-party
+        services. Those services are run by their own providers under their own terms and privacy policies, and we are
+        not responsible for their content or practices.
       </p>
 
       <h2>Personal data and cookies</h2>

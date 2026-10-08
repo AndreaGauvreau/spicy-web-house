@@ -24,7 +24,7 @@ export default function TermsPage() {
 
       <h2>What the site is</h2>
       <p>
-        The site presents our work and lets you book a call. It is not an offer to contract. Any project we do is
+        The site presents our work and lets you email us to book a call. It is not an offer to contract. Any project we do is
         governed by a separate written agreement signed by both sides.
       </p>
 
@@ -56,7 +56,7 @@ export default function TermsPage() {
 
       <h2>Third-party links and services</h2>
       <p>
-        Links and services operated by others, such as the scheduling tool, are outside our control and are used under
+        Links and services operated by others, such as the video delivery network, are outside our control and are used under
         their own terms.
       </p>
 

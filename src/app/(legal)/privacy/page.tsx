@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
-import { booking, company, host } from '@/content/site'
+import { company, host } from '@/content/site'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
@@ -40,17 +40,14 @@ export default function PrivacyPage() {
           and keep it secure.
         </li>
         <li>
-          <strong>Call bookings.</strong> The “Book a call” button opens a scheduling page run by{' '}
-          <Val>{booking.provider}</Val>. What you enter there (name, email, time zone, notes) is processed by that
-          provider and shared with us so we can hold the call.
-        </li>
-        <li>
-          <strong>Messages.</strong> If you email us, we keep your message and our replies.
+          <strong>Messages and call requests.</strong> The “Book a call” button opens an email to us. What you write
+          (name, email address, anything you add) reaches us by email, and we keep it with our replies so we can answer
+          you and set up the call.
         </li>
       </ul>
       <p>
         The site does not use advertising cookies, analytics cookies or any tracker that follows you across sites, so
-        there is no cookie banner. The scheduling provider may set its own cookies on its own page.
+        there is no cookie banner.
       </p>
 
       <h2>Why we use it, and on what basis</h2>
@@ -63,7 +60,7 @@ export default function PrivacyPage() {
 
       <h2>How long we keep it</h2>
       <p>
-        Messages and booking details are kept for as long as we are in contact, then up to three years after our last
+        Messages and call requests are kept for as long as we are in contact, then up to three years after our last
         exchange, unless a contract or a legal obligation requires longer. Technical logs are kept by the hosting
         provider for a short period under its own policy.
       </p>
@@ -71,7 +68,7 @@ export default function PrivacyPage() {
       <h2>Who receives it</h2>
       <p>
         Only service providers that help us run the site and our work, acting on our instructions: our hosting provider
-        ({host.name}), our video delivery provider (Bunny.net), the scheduling provider named above, and our email and productivity tools. We may also disclose
+        ({host.name}), our video delivery provider (Bunny.net), and our email and productivity tools. We may also disclose
         data when the law requires it.
       </p>
 

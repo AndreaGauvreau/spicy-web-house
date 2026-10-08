@@ -49,9 +49,8 @@ export function Home({ year }: { year: number }) {
             </motion.div>
 
             <motion.div variants={item} className={styles.ctaWrap}>
-              <a className={styles.cta} href={booking.url} target="_blank" rel="noopener noreferrer">
-                <span>{booking.label}</span>
-                <span className="sr-only"> (opens in a new tab)</span>
+              <a className={styles.cta} href={`mailto:${company.email}`}>
+                {booking.label}
               </a>
             </motion.div>
           </div>

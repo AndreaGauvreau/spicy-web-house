@@ -18,7 +18,7 @@ Everything the site says lives in `src/content/`:
 
 | File | What |
 |---|---|
-| `site.ts` | Booking link, showreel files, company identity used by the legal pages |
+| `site.ts` | Button label, showreel video, company identity and contact email used by the legal pages (the button opens an email to `company.email`) |
 | `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the details shown in the card on hover |
 
 The showreel is the full video on the studio CDN (`showreel.src`), streamed, always muted, in the card on the page. The icon on the card enlarges it in place (a scale from its bottom centre, like kuartz.studio). `public/video/poster.jpg` is the frame shown while it loads.
