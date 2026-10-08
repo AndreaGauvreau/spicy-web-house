@@ -35,7 +35,7 @@ export default function PrivacyPage() {
       <h2>What we collect</h2>
       <ul>
         <li>
-          <strong>Technical logs.</strong> When you load the site, our hosting provider processes your IP address,
+          <strong>Technical logs.</strong> When you load the site, our hosting provider and the content delivery network that streams the showreel (Bunny.net) process your IP address,
           browser and device type, the page requested and the time of the request. This is needed to deliver the site
           and keep it secure.
         </li>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
       <h2>Who receives it</h2>
       <p>
         Only service providers that help us run the site and our work, acting on our instructions: our hosting provider
-        ({host.name}), the scheduling provider named above, and our email and productivity tools. We may also disclose
+        ({host.name}), our video delivery provider (Bunny.net), the scheduling provider named above, and our email and productivity tools. We may also disclose
         data when the law requires it.
       </p>
 
