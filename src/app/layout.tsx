@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
-import { site } from '@/content/site'
+import { site, siteUrl } from '@/content/site'
 import './globals.css'
 
 const geist = Geist({
@@ -9,14 +9,8 @@ const geist = Geist({
   variable: '--font-geist',
 })
 
-const origin =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : 'http://localhost:3000')
-
 export const metadata: Metadata = {
-  metadataBase: new URL(origin),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${site.name} — Web design & development`,
     template: `%s — ${site.name}`,

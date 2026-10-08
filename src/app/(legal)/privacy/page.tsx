@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
-import { company, host } from '@/content/site'
+import { company, host, siteHost } from '@/content/site'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <p className={styles.sub}>Last updated {formatDate(company.lastUpdated)}</p>
 
       <p>
-        This policy explains what personal data {company.legalName} (“we”) handles through this site and what you can do
+        This policy explains what personal data {company.legalName} (“we”) handles through this site ({siteHost}) and what you can do
         about it. It applies to visitors from anywhere, including the European Economic Area, the United Kingdom and
         the United States.
       </p>

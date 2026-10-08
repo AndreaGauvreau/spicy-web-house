@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
-import { company, host } from '@/content/site'
+import { company, host, siteHost, siteUrl } from '@/content/site'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
@@ -32,6 +32,12 @@ export default function LegalNoticePage() {
         <div>
           <dt>Activity</dt>
           <dd>{company.activity}</dd>
+        </div>
+        <div>
+          <dt>Website</dt>
+          <dd>
+            <a href={siteUrl}>{siteHost}</a>
+          </dd>
         </div>
         {company.filingNumber ? (
           <div>

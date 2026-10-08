@@ -8,6 +8,10 @@ export const TODO = '__TODO__'
 export const isTodo = (value: string | undefined): boolean =>
   value === undefined || value.includes(TODO)
 
+/** Public address of the site. NEXT_PUBLIC_SITE_URL can override it (previews, tests). */
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.spicy-web-house.com'
+export const siteHost = new URL(siteUrl).host
+
 export const site = {
   name: 'Spicy Web House',
   description:

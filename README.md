@@ -37,7 +37,7 @@ Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. Light mode only. The loc
 
 ## Deploy
 
-Push to GitHub, import the repo on Vercel, no configuration needed. Optional environment variable: `NEXT_PUBLIC_SITE_URL` (custom domain, used for canonical URLs, sitemap and social images).
+The site lives at https://www.spicy-web-house.com (the address is `siteUrl` in `src/content/site.ts`; the bare domain redirects to `www`). Push to `main` and Vercel deploys. Set `NEXT_PUBLIC_SITE_URL` only to override the address, for example on a test deployment.
 
 ## Legal pages
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
-import { company } from '@/content/site'
+import { company, siteHost } from '@/content/site'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function TermsPage() {
       <p className={styles.sub}>Last updated {formatDate(company.lastUpdated)}</p>
 
       <p>
-        These terms cover your use of this website, operated by {company.legalName}. By using the site you agree to
+        These terms cover your use of this website ({siteHost}), operated by {company.legalName}. By using the site you agree to
         them. If you do not agree, please do not use the site.
       </p>
 
