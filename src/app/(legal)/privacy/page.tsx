@@ -75,11 +75,12 @@ export default function PrivacyPage() {
         data when the law requires it.
       </p>
 
-      <h2>Transfers outside your country</h2>
+      <h2>International processing</h2>
       <p>
-        Our hosting and scheduling providers are U.S. companies, so your data may be processed in the United States or
-        in other countries. When data leaves the EEA or the United Kingdom, transfers rely on a recognised safeguard, such as the
-        EU–U.S. Data Privacy Framework or Standard Contractual Clauses.
+        {company.legalName} is a U.S. company and our providers are mostly U.S. companies, so your data is processed in
+        the United States and possibly in other countries. Where the law requires it for visitors in the European
+        Economic Area or the United Kingdom, we rely on recognised safeguards such as the EU–U.S. Data Privacy Framework
+        or Standard Contractual Clauses.
       </p>
 
       <h2>Your rights</h2>
@@ -90,8 +91,8 @@ export default function PrivacyPage() {
         these rights, write to <Email />; we answer within one month.
       </p>
       <p>
-        If you think we have not handled your data properly, you can complain to your local data protection authority
-        (in France, the CNIL, <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">cnil.fr</a>).
+        If you think we have not handled your data properly, you can complain to the data protection authority of your
+        country.
       </p>
 
       <h2>Security</h2>
