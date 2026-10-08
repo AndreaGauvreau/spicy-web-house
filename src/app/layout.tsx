@@ -1,20 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Dela_Gothic_One, Inter } from 'next/font/google'
+import { Geist } from 'next/font/google'
 import { site } from '@/content/site'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
+const geist = Geist({
+  subsets: ['latin', 'latin-ext'],
   display: 'swap',
-  variable: '--font-inter',
-})
-
-// Heavy display face for the wordmark, the call to action and page titles.
-const display = Dela_Gothic_One({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-display-face',
+  variable: '--font-geist',
 })
 
 const origin =
@@ -49,7 +41,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable}`}>
+    <html lang="en" className={geist.variable}>
       <body>{children}</body>
     </html>
   )

@@ -33,7 +33,7 @@ Set `STRICT_PLACEHOLDERS=1` on the Vercel **production** environment to make the
 
 ## Brand
 
-Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. Light mode only. The lockup is `src/components/Logo.tsx` (from the original SVG, recoloured for light backgrounds), the favicon is `src/app/icon.png` (also used as `apple-icon.png`). Display face: Dela Gothic One; text: Inter.
+Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. Light mode only. The lockup is `src/components/Logo.tsx` (from the original SVG, recoloured for light backgrounds), the favicon is `src/app/icon.png` (also used as `apple-icon.png`). Font: Geist everywhere (`next/font/google`).
 
 ## Deploy
 

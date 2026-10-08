@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useCallback, useMemo, useState } from 'react'
 import { booking, company, site } from '@/content/site'
 import { ClientLogos } from './ClientLogos'
-import { CursorIcon } from './icons'
 import { Logo } from './Logo'
 import { DURATION, EASE_OUT } from './motion'
 import { ReelLightbox } from './ReelLightbox'
@@ -55,9 +54,6 @@ export function Home({ year }: { year: number }) {
             <motion.div variants={item} className={styles.ctaWrap}>
               <a className={styles.cta} href={booking.url} target="_blank" rel="noopener noreferrer">
                 <span>{booking.label}</span>
-                <span className={styles.ctaIcon} aria-hidden="true">
-                  <CursorIcon />
-                </span>
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </motion.div>
