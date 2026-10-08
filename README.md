@@ -19,7 +19,7 @@ Everything the site says lives in `src/content/`:
 | File | What |
 |---|---|
 | `site.ts` | Booking link, showreel files, company identity used by the legal pages |
-| `clients.ts` | "Trusted by" logos (square PNG/SVG in `public/logos/`) |
+| `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the details shown in the card on hover |
 
 Replace the showreel with your own: put `showreel.mp4` and `poster.jpg` in `public/video/` (the current files are a generated stand-in), then set `showreel.placeholder` to `false`.
 
@@ -33,7 +33,7 @@ Set `STRICT_PLACEHOLDERS=1` on the Vercel **production** environment to make the
 
 ## Brand
 
-Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. The flame mark is `FlameMark` in `src/components/icons.tsx`. Light and dark themes follow the visitor's system setting. Display face: Dela Gothic One; text: Inter.
+Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. Light mode only. The lockup is `src/components/Logo.tsx` (from the original SVG, recoloured for light backgrounds), the favicon is `src/app/icon.png` (also used as `apple-icon.png`). Display face: Dela Gothic One; text: Inter.
 
 ## Deploy
 

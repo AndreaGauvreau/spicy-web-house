@@ -3,9 +3,10 @@
 import { AnimatePresence, MotionConfig, motion, stagger, useReducedMotion } from 'motion/react'
 import Link from 'next/link'
 import { useCallback, useMemo, useState } from 'react'
-import { clients } from '@/content/clients'
 import { booking, company, site } from '@/content/site'
-import { CursorIcon, FlameMark } from './icons'
+import { ClientLogos } from './ClientLogos'
+import { CursorIcon } from './icons'
+import { Logo } from './Logo'
 import { DURATION, EASE_OUT } from './motion'
 import { ReelLightbox } from './ReelLightbox'
 import { ShowreelCard } from './ShowreelCard'
@@ -17,7 +18,7 @@ export function Home({ year }: { year: number }) {
   const reduce = useReducedMotion()
 
   // One entrance for the whole page: every block rises 10px and fades in, 60 ms apart.
-  const { page, item, group, flame } = useMemo(
+  const { page, item, group } = useMemo(
     () => ({
       page: {
         hidden: {},
@@ -31,11 +32,6 @@ export function Home({ year }: { year: number }) {
         hidden: {},
         show: { transition: { delayChildren: stagger(reduce ? 0 : 0.03) } },
       },
-      // The big flame behind the stage rises a little slower than the content.
-      flame: {
-        hidden: { opacity: 0, y: 28 },
-        show: { opacity: 1, y: 0, transition: { duration: reduce ? 0 : 0.5, ease: EASE_OUT } },
-      },
     }),
     [reduce],
   )
@@ -45,19 +41,12 @@ export function Home({ year }: { year: number }) {
       <motion.div id="page" className={styles.page} variants={page} initial="hidden" animate="show">
         <motion.header className={styles.top} variants={item}>
           <h1 className={styles.brand}>
-            <FlameMark className={styles.brandMark} />
-            <span>Spicy</span>
-            <span className={styles.brandBadge}>Web</span>
-            <span>House</span>
+            <Logo className={styles.brandLogo} label="Spicy Web House" />
             <span className="sr-only"> — web design and development studio</span>
           </h1>
         </motion.header>
 
         <main className={styles.stage}>
-          <motion.div className={styles.flame} variants={flame} aria-hidden="true">
-            <FlameMark />
-          </motion.div>
-
           <div className={styles.stack}>
             <motion.div variants={item}>
               <ShowreelCard paused={reelOpen} onOpen={() => setReelOpen(true)} />
@@ -85,17 +74,7 @@ export function Home({ year }: { year: number }) {
               {site.trusted}
             </motion.p>
 
-            <motion.ul className={styles.logos} variants={group} aria-label="Clients">
-              {clients.map((client) => (
-                <motion.li key={client.name} variants={item} className={styles.logo}>
-                  {client.logo ? (
-                    <img src={client.logo} alt={client.name} width={40} height={40} loading="lazy" />
-                  ) : (
-                    <span className={styles.logoStandIn} role="img" aria-label={client.name} />
-                  )}
-                </motion.li>
-              ))}
-            </motion.ul>
+            <ClientLogos group={group} item={item} />
           </div>
 
           <motion.div className={styles.legal} variants={item}>

@@ -1,5 +1,5 @@
 :root {
-  /* Spicy Web House palette: coral, blush, warm black */
+  /* Spicy Web House palette: coral, blush, warm black. Light mode only. */
   --bg: #fff4f4;
   --surface: #fffafa;
   --card: #ffffff;
@@ -12,9 +12,6 @@
   --brand-ink: #b52d2d;
   --brand-soft: #ffdcdc;
   --on-brand: #0d0000;
-  --flame: #f6d6d4;
-  --stand-in-from: #f3e1e0;
-  --stand-in-to: #ecd2d1;
   --backdrop: rgba(13, 0, 0, 0.6);
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -22,26 +19,7 @@
 
   --font: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: var(--font-display-face), var(--font-inter), system-ui, sans-serif;
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e0303;
-    --surface: #170707;
-    --card: #1f0b0b;
-    --ink: #fff4f4;
-    --ink-2: #d2bcbc;
-    --ink-3: #937a7a;
-    --line: #2b1414;
-
-    --brand-ink: #ff8f8f;
-    --brand-soft: rgba(255, 94, 94, 0.16);
-    --flame: #ee6b63;
-    --stand-in-from: #2d1818;
-    --stand-in-to: #241212;
-    --backdrop: rgba(14, 3, 3, 0.78);
-  }
+  color-scheme: light;
 }
 
 *,

@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { FLAME_PATH } from '@/components/icons'
+import { Logo } from '@/components/Logo'
 import { site } from '@/content/site'
 
 export const alt = site.name
@@ -11,7 +11,6 @@ export default function OpengraphImage() {
     (
       <div
         style={{
-          position: 'relative',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -23,21 +22,10 @@ export default function OpengraphImage() {
           overflow: 'hidden',
         }}
       >
-        <svg
-          width="620"
-          height="700"
-          viewBox="-20 0 657 720"
-          style={{ position: 'absolute', left: -120, bottom: -260 }}
-        >
-          <path d={FLAME_PATH} fill="#f6d6d4" fillRule="evenodd" />
-        </svg>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14, fontSize: 34, fontWeight: 800 }}>
-          <svg width="40" height="44" viewBox="-20 0 657 720">
-            <path d={FLAME_PATH} fill="#ff5e5e" fillRule="evenodd" />
-          </svg>
-          <span>SPICY</span>
-          <span style={{ background: '#ff5e5e', padding: '4px 12px', borderRadius: 10 }}>WEB</span>
-          <span>HOUSE</span>
+        <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', width: 150, height: 112 }}>
+            <Logo ink="#0d0000" brand="#ff5e5e" />
+          </div>
         </div>
         <div
           style={{
