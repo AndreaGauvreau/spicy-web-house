@@ -38,18 +38,18 @@ export const company = {
   tradeName: 'Spicy Web House',
   entity: 'Limited liability company (LLC)',
   /** State of formation. */
-  state: 'Delaware',
-  /** Address of record of the company (mailing address on the IRS documents). */
+  state: 'Wyoming',
+  /** Principal office, as filed with the Wyoming Secretary of State. */
   address: '604 Carson Dr, NT-00181, Bear, DE 19701, United States',
   /** What the company does, as stated on the legal notice. */
   activity: 'Web design and web development',
   /** Sole member. */
   manager: 'Andrea Gauvreau',
   /** Public contact address. Required on the legal notice. */
-  email: 'andrea@kuartz.studio',
-  /** Delaware file number and registered agent: shown only when set. */
-  filingNumber: undefined as string | undefined,
-  registeredAgent: undefined as string | undefined,
+  email: 'contact@spicy-web-house.com',
+  /** Wyoming Filing ID and registered agent: shown only when set. */
+  filingNumber: '2026-001904234',
+  registeredAgent: 'Northwest Registered Agent Service Inc, 30 N Gould St Ste N, Sheridan, WY 82801, United States',
   /** Where the business is actually run, if different. Leave undefined to hide. */
   operatingAddress: undefined as string | undefined,
   phone: undefined as string | undefined,
@@ -57,7 +57,7 @@ export const company = {
   vat: undefined as string | undefined,
   /** EU/UK representative (GDPR art. 27), only if one is appointed. */
   euRepresentative: undefined as string | undefined,
-  lastUpdated: '2026-10-08',
+  lastUpdated: '2026-10-19',
 }
 
 export const host = {

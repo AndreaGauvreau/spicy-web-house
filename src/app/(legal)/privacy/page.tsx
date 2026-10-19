@@ -25,7 +25,7 @@ export default function PrivacyPage() {
 
       <h2>Who is responsible</h2>
       <p>
-        {company.legalName}, a Delaware limited liability company, <Val>{company.address}</Val>, is the controller of the data
+        {company.legalName}, a {company.state} limited liability company, <Val>{company.address}</Val>, is the controller of the data
         described here. You can reach us at <Email />.
       </p>
       {company.euRepresentative ? (

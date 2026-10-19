@@ -41,12 +41,12 @@ export default function LegalNoticePage() {
         </div>
         {company.filingNumber ? (
           <div>
-            <dt>State file number</dt>
+            <dt>Wyoming Filing ID</dt>
             <dd>{company.filingNumber}</dd>
           </div>
         ) : null}
         <div>
-          <dt>Address</dt>
+          <dt>Principal office</dt>
           <dd>
             <Val>{company.address}</Val>
           </dd>
