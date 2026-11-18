@@ -1,21 +1,22 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
 import { company, host, siteHost, siteUrl } from '@/content/site'
+import { pageMetadata } from '@/lib/metadata'
 import styles from '../legal.module.css'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Legal notice',
-  alternates: { canonical: '/legal-notice' },
-}
+  description: `Legal identity of ${company.legalName}: legal form, Wyoming Filing ID, registered agent, principal office, contact and hosting.`,
+  path: '/legal-notice',
+})
 
 export default function LegalNoticePage() {
   return (
     <>
       <h1>Legal notice</h1>
-      <p className={styles.sub}>Mentions légales · Last updated {formatDate(company.lastUpdated)}</p>
+      <p className={styles.sub}>Last updated {formatDate(company.lastUpdated)}</p>
 
       <h2>Publisher</h2>
       <dl className={styles.facts}>
@@ -119,9 +120,9 @@ export default function LegalNoticePage() {
 
       <h2>Third-party services and links</h2>
       <p>
-        The showreel is streamed by a third-party delivery network, and the site may link to other third-party
-        services. Those services are run by their own providers under their own terms and privacy policies, and we are
-        not responsible for their content or practices.
+        Media such as the showreel may be served by a third-party delivery network, and the site links to the websites
+        of our clients and to other third-party services. Those services are run by their own providers under their
+        own terms and privacy policies, and we are not responsible for their content or practices.
       </p>
 
       <h2>Personal data and cookies</h2>

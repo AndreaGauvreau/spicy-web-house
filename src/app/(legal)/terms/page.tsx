@@ -1,15 +1,16 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
 import { company, siteHost } from '@/content/site'
+import { pageMetadata } from '@/lib/metadata'
 import styles from '../legal.module.css'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Terms of use',
-  alternates: { canonical: '/terms' },
-}
+  description: `The terms that apply when you use ${siteHost}, operated by ${company.legalName}.`,
+  path: '/terms',
+})
 
 export default function TermsPage() {
   return (
@@ -18,20 +19,27 @@ export default function TermsPage() {
       <p className={styles.sub}>Last updated {formatDate(company.lastUpdated)}</p>
 
       <p>
-        These terms cover your use of this website ({siteHost}), operated by {company.legalName}. By using the site you agree to
-        them. If you do not agree, please do not use the site.
+        These terms cover your use of this website ({siteHost}), operated by {company.legalName}. By using the site you
+        agree to them. If you do not agree, please do not use the site.
       </p>
 
       <h2>What the site is</h2>
       <p>
-        The site presents our work and lets you email us to book a call. It is not an offer to contract. Any project we do is
-        governed by a separate written agreement signed by both sides.
+        The site presents our services and work and lets you contact us to book a free intro call. It is not an offer
+        to contract. Any project we do is governed by a separate written agreement signed by both sides.
       </p>
 
       <h2>Using the site</h2>
       <p>
         You may browse the site and use its content for your own information. You agree not to disrupt it, attempt to
         gain unauthorised access, scrape it at a scale that affects its operation, or use it for anything unlawful.
+      </p>
+
+      <h2>Contacting us</h2>
+      <p>
+        The contact form prepares an email in your own email app; nothing is sent until you send it. Please do not
+        include confidential information or personal data you do not need to share. How we handle what you send is
+        described in the <Link href="/privacy">privacy policy</Link>.
       </p>
 
       <h2>Intellectual property</h2>
@@ -43,8 +51,8 @@ export default function TermsPage() {
 
       <h2>No warranty</h2>
       <p>
-        The site is provided as is and as available. We do not promise that it will be uninterrupted, error-free or
-        that its content is complete or current.
+        The site is provided as is and as available. We do not promise that it will be uninterrupted, error-free or that
+        its content is complete or current.
       </p>
 
       <h2>Limit of liability</h2>
@@ -56,8 +64,8 @@ export default function TermsPage() {
 
       <h2>Third-party links and services</h2>
       <p>
-        Links and services operated by others, such as the video delivery network, are outside our control and are used under
-        their own terms.
+        Links and services operated by others, such as the websites of our clients and the delivery network that serves
+        media, are outside our control and are used under their own terms.
       </p>
 
       <h2>Governing law</h2>

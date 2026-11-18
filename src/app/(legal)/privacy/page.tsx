@@ -1,15 +1,16 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Email } from '@/components/Email'
 import { Val } from '@/components/Val'
 import { formatDate } from '@/content/format'
 import { company, host, siteHost } from '@/content/site'
+import { pageMetadata } from '@/lib/metadata'
 import styles from '../legal.module.css'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy policy',
-  alternates: { canonical: '/privacy' },
-}
+  description: `How ${company.legalName} handles personal data on ${siteHost}: what we collect, why, how long we keep it and your rights.`,
+  path: '/privacy',
+})
 
 export default function PrivacyPage() {
   return (
@@ -18,31 +19,31 @@ export default function PrivacyPage() {
       <p className={styles.sub}>Last updated {formatDate(company.lastUpdated)}</p>
 
       <p>
-        This policy explains what personal data {company.legalName} (“we”) handles through this site ({siteHost}) and what you can do
-        about it. It applies to visitors from anywhere, including the European Economic Area, the United Kingdom and
-        the United States.
+        This policy explains what personal data {company.legalName} (“we”) handles through this site ({siteHost}) and
+        what you can do about it. It applies to visitors from anywhere, including the European Economic Area, the
+        United Kingdom and the United States.
       </p>
 
       <h2>Who is responsible</h2>
       <p>
-        {company.legalName}, a {company.state} limited liability company, <Val>{company.address}</Val>, is the controller of the data
-        described here. You can reach us at <Email />.
+        {company.legalName}, a {company.state} limited liability company, <Val>{company.address}</Val>, is the
+        controller of the data described here. You can reach us at <Email />.
       </p>
-      {company.euRepresentative ? (
-        <p>Our representative in the European Union is {company.euRepresentative}.</p>
-      ) : null}
+      {company.euRepresentative ? <p>Our representative in the European Union is {company.euRepresentative}.</p> : null}
 
       <h2>What we collect</h2>
       <ul>
         <li>
-          <strong>Technical logs.</strong> When you load the site, our hosting provider and the content delivery network that streams the showreel (Bunny.net) process your IP address,
-          browser and device type, the page requested and the time of the request. This is needed to deliver the site
-          and keep it secure.
+          <strong>Technical logs.</strong> When you load the site, our hosting provider ({host.name}) and the delivery
+          network that serves media such as the showreel process your IP address, browser and device type, the page
+          requested and the time of the request. This is needed to deliver the site and keep it secure.
         </li>
         <li>
-          <strong>Messages and call requests.</strong> The “Book a call” button opens an email to us. What you write
-          (name, email address, anything you add) reaches us by email, and we keep it with our replies so we can answer
-          you and set up the call.
+          <strong>Messages and call requests.</strong> The contact form does not send anything to our servers. When you
+          submit it, it prepares an email addressed to <Email /> in your own email app. What you write (name, email
+          address, company, what you need, timeline, budget and your message) reaches us only if you send that email,
+          and we keep it with our replies so we can answer you and set up the call. You can also write to us directly
+          at the same address.
         </li>
       </ul>
       <p>
@@ -52,7 +53,10 @@ export default function PrivacyPage() {
 
       <h2>Why we use it, and on what basis</h2>
       <ul>
-        <li>To answer your messages and set up calls you ask for (steps before a contract, or our legitimate interest in replying).</li>
+        <li>
+          To answer your messages and set up calls you ask for (steps before a contract, or our legitimate interest in
+          replying).
+        </li>
         <li>To run and secure the site (our legitimate interest).</li>
         <li>To meet legal, tax and accounting obligations (legal obligation).</li>
       </ul>
@@ -68,16 +72,22 @@ export default function PrivacyPage() {
       <h2>Who receives it</h2>
       <p>
         Only service providers that help us run the site and our work, acting on our instructions: our hosting provider
-        ({host.name}), our video delivery provider (Bunny.net), and our email and productivity tools. We may also disclose
-        data when the law requires it.
+        ({host.name}), the delivery network that serves media such as the showreel, and our email and productivity
+        tools. We may also disclose data when the law requires it.
+      </p>
+
+      <h2>Links to other websites</h2>
+      <p>
+        The site links to websites we built for our clients and to other third-party sites. Those sites are run by
+        their own owners, who are responsible for how they handle your data.
       </p>
 
       <h2>International processing</h2>
       <p>
         {company.legalName} is a U.S. company and our providers are mostly U.S. companies, so your data is processed in
         the United States and possibly in other countries. Where the law requires it for visitors in the European
-        Economic Area or the United Kingdom, we rely on recognised safeguards such as the EU-U.S. Data Privacy Framework
-        or Standard Contractual Clauses.
+        Economic Area or the United Kingdom, we rely on recognised safeguards such as the EU-U.S. Data Privacy
+        Framework or Standard Contractual Clauses.
       </p>
 
       <h2>Your rights</h2>
