@@ -76,7 +76,7 @@ export default function PrivacyPage() {
       <p>
         {company.legalName} is a U.S. company and our providers are mostly U.S. companies, so your data is processed in
         the United States and possibly in other countries. Where the law requires it for visitors in the European
-        Economic Area or the United Kingdom, we rely on recognised safeguards such as the EU–U.S. Data Privacy Framework
+        Economic Area or the United Kingdom, we rely on recognised safeguards such as the EU-U.S. Data Privacy Framework
         or Standard Contractual Clauses.
       </p>
 

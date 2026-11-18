@@ -38,7 +38,7 @@ export function Home({ year }: { year: number }) {
         <motion.header className={styles.top} variants={item}>
           <h1 id="brand" className={styles.brand}>
             <Logo className={styles.brandLogo} label="Spicy Web House" />
-            <span className="sr-only"> — web design and development studio</span>
+            <span className="sr-only">, web design and development studio</span>
           </h1>
         </motion.header>
 

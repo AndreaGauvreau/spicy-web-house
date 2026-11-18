@@ -15,6 +15,8 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith('.ts'))) {
         hits.push(`${file}:${i + 1}  ${line.trim()}`)
       } else if (/placeholder:\s*true/.test(line)) {
         hits.push(`${file}:${i + 1}  stand-in content (placeholder: true)`)
+      } else if (/(pending|needsConfirmation):\s*true/.test(line)) {
+        hits.push(`${file}:${i + 1}  waiting for the owner (${line.trim().replace(/,$/, '')})`)
       }
     })
 }

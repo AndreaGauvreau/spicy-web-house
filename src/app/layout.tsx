@@ -12,8 +12,8 @@ const geist = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — Web design & development`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | Web design & development`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: site.name,
-    title: `${site.name} — Web design & development`,
+    title: `${site.name} | Web design & development`,
     description: site.description,
     url: '/',
   },

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'motion/react'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { showreel } from '@/content/site'
 import { CollapseIcon, ExpandIcon } from './icons'
@@ -29,7 +30,29 @@ function fitScale(frame: HTMLElement): number {
   return Math.max(1, scale)
 }
 
+/** The card the page shows: the video when there is one, the poster alone otherwise. */
 export function ShowreelCard() {
+  if (!showreel.src) {
+    return (
+      <div className={styles.frame}>
+        <div className={styles.card}>
+          <Image
+            className={styles.video}
+            src={showreel.poster}
+            alt="Spicy Web House"
+            width={1280}
+            height={720}
+            sizes="(max-width: 720px) 68vw, 540px"
+            priority
+          />
+        </div>
+      </div>
+    )
+  }
+  return <ShowreelVideo src={showreel.src} />
+}
+
+function ShowreelVideo({ src }: { src: string }) {
   const frameRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const reduce = useReducedMotion()
@@ -91,7 +114,7 @@ export function ShowreelCard() {
         <video
           ref={videoRef}
           className={styles.video}
-          src={showreel.src}
+          src={src}
           poster={showreel.poster}
           muted
           loop

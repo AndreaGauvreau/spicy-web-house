@@ -21,7 +21,7 @@ Everything the site says lives in `src/content/`:
 | `site.ts` | Button label, showreel video, company identity and contact email used by the legal pages (the button opens an email to `company.email`) |
 | `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the details shown in the card on hover |
 
-The showreel is the full video on the studio CDN (`showreel.src`), streamed, always muted, in the card on the page. The icon on the card enlarges it in place (a scale from its bottom centre, like kuartz.studio). `public/video/poster.jpg` is the frame shown while it loads.
+The showreel is the video set in `showreel.src`, streamed, always muted, in the card on the page. The icon on the card enlarges it in place (a scale from its bottom centre). `public/media/poster.jpg` is the frame shown while it loads. While `showreel.src` is undefined, the card shows the poster alone.
 
 Anything still set to `TODO` or `placeholder: true` shows as `[to be completed]` on the legal pages and is listed by:
 
