@@ -109,7 +109,7 @@
   gap: var(--s-2);
   padding: var(--s-3) 20px;
   border: 0;
-  border-radius: var(--r-pill);
+  border-radius: var(--r-md);
   font: inherit;
   font-size: var(--fs-ui);
   font-weight: 500;
@@ -384,7 +384,7 @@
 
 .workIndustry {
   padding: var(--s-1) 10px;
-  border-radius: var(--r-pill);
+  border-radius: var(--r-sm);
   background: var(--brand-soft);
   color: var(--brand-ink);
   font-size: var(--fs-xs);
@@ -551,7 +551,7 @@
 
 .chip {
   padding: var(--s-2) var(--s-4);
-  border-radius: var(--r-pill);
+  border-radius: var(--r-sm);
   background: var(--card);
   box-shadow: 0 0 0 1px var(--line);
   font-size: var(--fs-body);
@@ -608,7 +608,7 @@
   place-items: center;
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: var(--r-sm);
   background: var(--card);
   box-shadow: 0 0 0 1px var(--line);
   transition: transform 250ms var(--ease-out);
@@ -648,7 +648,7 @@
   display: grid;
   gap: var(--s-5);
   padding: clamp(28px, 5vw, 64px);
-  border-radius: var(--r-xl);
+  border-radius: var(--r-lg);
   background: var(--brand);
   color: var(--on-brand);
 }

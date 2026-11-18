@@ -68,12 +68,6 @@
     0 24px 48px -24px rgba(13, 0, 0, 0.28);
 }
 
-@media (min-width: 720px) {
-  .showreel {
-    border-radius: var(--r-xl);
-  }
-}
-
 .showreel video,
 .showreel img {
   position: absolute;

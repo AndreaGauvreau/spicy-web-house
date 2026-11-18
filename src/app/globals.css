@@ -53,11 +53,10 @@
   --s-8: 80px;
   --section-y: clamp(56px, 7vw, 80px);
 
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 16px; /* cards, panels, inputs' containers */
-  --r-xl: clamp(20px, 2.2vw, 32px); /* hero video, final call to action */
-  --r-pill: 999px;
+  /* Radii: discreet, 12 px at most. */
+  --r-sm: 4px; /* tags, chips, small icon boxes */
+  --r-md: 8px; /* buttons, fields, logos, tooltips */
+  --r-lg: 12px; /* cards, panels, the hero video, the final call to action */
 
   --container: 1280px;
   --gutter: clamp(20px, 5.6vw, 80px);
@@ -132,7 +131,7 @@ button {
   left: 12px;
   z-index: 100;
   padding: 12px 18px;
-  border-radius: 999px;
+  border-radius: var(--r-md);
   background: var(--ink);
   color: #fff;
   font-size: 14px;

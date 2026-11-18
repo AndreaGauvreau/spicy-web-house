@@ -8,7 +8,7 @@ import s from '@/components/site.module.css'
 export const metadata = pageMetadata({
   title: 'Work',
   description:
-    'Selected work by Spicy Web House: websites for Blackbox AI, Orizons, Oqood, Alexandrie, Everything To Gain and Trust, from AI tools to smart buildings.',
+    'Selected work by Spicy Web House: websites for Blackbox AI, WinningHunter, Tied, Alexandrie, Everything To Gain and Trust, from AI tools to e-commerce.',
   path: '/work',
 })
 

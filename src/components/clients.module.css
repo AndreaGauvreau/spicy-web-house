@@ -53,7 +53,7 @@
   z-index: 30;
   width: 176px;
   overflow: hidden;
-  border-radius: var(--r-sm);
+  border-radius: var(--r-md);
   background: var(--card);
   pointer-events: none;
   box-shadow:

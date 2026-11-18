@@ -17,18 +17,18 @@ export const projects: Project[] = [
     domain: 'blackbox.ai',
   },
   {
-    name: 'Orizons',
-    tagline: 'Smart building intelligence for asset managers and field teams.',
-    industry: 'Proptech',
+    name: 'WinningHunter',
+    tagline: 'An ad spy tool to find winning products and ads on Facebook, TikTok, Pinterest and Google.',
+    industry: 'E-commerce tools',
     services: 'Website',
-    domain: 'orizons.io',
+    domain: 'winninghunter.com',
   },
   {
-    name: 'Oqood',
-    tagline: 'An AI legal assistant for bilingual contracts and documents across MENA.',
-    industry: 'Legal tech',
+    name: 'Tied',
+    tagline: 'An AI customer service agent that resolves requests instead of just replying.',
+    industry: 'AI and customer service',
     services: 'Website',
-    domain: 'oqood.ai',
+    domain: 'tied.com',
   },
   {
     name: 'Alexandrie',
@@ -56,7 +56,7 @@ export const projects: Project[] = [
 export const workPage = {
   eyebrow: 'Work',
   headline: 'Selected work.',
-  sub: "A few of the companies we've designed and built for, from AI tools to smart buildings.",
+  sub: "A few of the companies we've designed and built for, from AI tools to e-commerce.",
   cta: {
     headline: 'Your project could be next.',
     body: "Tell us what you're building and we'll show you how we'd approach it.",
