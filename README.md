@@ -37,7 +37,7 @@ Pages are in `src/app/(site)/` (Home, Services, Work, About, Contact) and `src/a
 
 **Contact form and booking.** The form prepares an email in the visitor's own email app, so nothing passes through this site and no service is needed. The "Book a free intro call" buttons lead to `/contact`; put an `https://` link in `booking.href` to open a booking page instead.
 
-**Showreel.** `showreel.src` in `site.ts` is empty while the video is pending: the card shows `public/media/poster.jpg` alone. Set it to a neutral URL (for example `/media/showreel.mp4`) and `pending` to `false` to turn the video on.
+**Hero.** The text, then a big video space in the middle, then the client logos in a ticker. **Showreel.** `showreel.src` in `site.ts` is empty while the video is pending: the poster (`public/media/poster.jpg`) fills the space. Set `src` to a neutral URL (for example `/media/showreel.mp4`) and `pending` to `false` and the video plays there, silent and looping. `showreel.aspect` is its width over height (2 by default; 4 over 3 on phones).
 
 **Client valuations** (hover card): the last priced funding round reported in the press. Update them when a company raises again.
 

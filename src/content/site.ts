@@ -32,13 +32,15 @@ export const booking = {
 
 export const showreel = {
   /**
-   * Showreel video, streamed, always muted, enlarged in place with the icon on the card.
+   * The big video in the middle of the home page hero: autoplay, muted, looping.
    * Set it to a neutral URL (for example /media/showreel.mp4 or a CDN link) once a version
-   * without third-party branding is available. While it is undefined, the poster is shown alone.
+   * without third-party branding is available. While it is undefined, the poster fills the space.
    */
   src: undefined as string | undefined,
-  /** Frame shown while the video loads, or alone while there is no video. */
+  /** Frame shown while the video loads, or alone while there is no video. Same shape as the video. */
   poster: '/media/poster.jpg',
+  /** Width over height of the video space on large screens (on phones it is 4 over 3). */
+  aspect: 2,
   /** Flagged by `npm run check:placeholders` until the video is in place. */
   pending: true,
 }

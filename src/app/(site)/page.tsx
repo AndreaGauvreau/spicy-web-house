@@ -4,7 +4,7 @@ import { BookButton, ButtonLink } from '@/components/Button'
 import { Faq } from '@/components/Faq'
 import { ArrowIcon } from '@/components/icons'
 import { FinalCta, Section, SectionHead, enterStyle } from '@/components/Section'
-import { ShowreelCard } from '@/components/ShowreelCard'
+import { Showreel } from '@/components/Showreel'
 import { TrustedBy } from '@/components/TrustedBy'
 import { WorkCard } from '@/components/WorkCard'
 import { faqHeadline, homeFaq } from '@/content/faq'
@@ -59,8 +59,8 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className={home.hero} aria-labelledby="hero-title">
-        <div className={`${s.container} ${home.heroGrid}`}>
-          <div>
+        <div className={s.container}>
+          <div className={home.heroText}>
             <p className={`${s.eyebrow} enter`} style={enterStyle(0)}>
               {hero.eyebrow}
             </p>
@@ -79,8 +79,9 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className={`${home.media} enter`} style={enterStyle(2)}>
-            <ShowreelCard />
+
+          <div className={`${home.mediaWrap} enter`} style={enterStyle(4)}>
+            <Showreel />
           </div>
         </div>
       </section>

@@ -1,28 +1,26 @@
-/* Hero */
+/* Hero: the text on the left, a big video space below, then the client logos. */
 
 .hero {
-  padding: 40px 0 64px;
+  padding: 40px 0 8px;
 }
 
-.heroGrid {
-  display: grid;
-  gap: 40px;
-  align-items: center;
+.heroText {
+  max-width: 800px;
 }
 
 .heroTitle {
   margin: 0;
-  font-size: clamp(42px, 7.2vw, 84px);
+  font-size: clamp(30px, 4.2vw, 56px);
   font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
 .heroSub {
-  margin: 24px 0 0;
-  max-width: 52ch;
-  font-size: clamp(18px, 1.8vw, 21px);
+  margin: 20px 0 0;
+  max-width: 60ch;
+  font-size: clamp(17px, 1.5vw, 19px);
   line-height: 1.55;
   color: var(--ink-2);
 }
@@ -31,103 +29,46 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
-}
-
-.media {
-  display: flex;
-  justify-content: center;
+  margin-top: 28px;
 }
 
 @media (min-width: 960px) {
   .hero {
-    padding: 72px 0 104px;
-  }
-
-  .heroGrid {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 56px;
-  }
-
-  .media {
-    justify-content: flex-end;
+    padding-top: 64px;
   }
 }
 
-/* Showreel card. The frame is what scales (from its bottom centre); the card inside keeps its own hover and press states. */
+/* The video space: the full width of the content, the shape of the video. */
 
-.frame {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 580px;
-  aspect-ratio: 16 / 9;
+.mediaWrap {
+  margin-top: 44px;
 }
 
-.card {
+.showreel {
   position: relative;
-  display: block;
   width: 100%;
-  height: 100%;
-  padding: 0;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 0;
   border-radius: 16px;
   background: var(--card);
-  cursor: pointer;
   box-shadow:
     0 0 0 1px var(--line),
     0 1px 2px rgba(13, 0, 0, 0.05),
-    0 18px 40px -16px rgba(13, 0, 0, 0.28);
-  transition:
-    transform 200ms var(--ease-out),
-    box-shadow 200ms var(--ease-out);
+    0 24px 48px -24px rgba(13, 0, 0, 0.28);
 }
 
-.card:active {
-  transform: scale(0.99);
+@media (min-width: 720px) {
+  .showreel {
+    aspect-ratio: var(--aspect, 2);
+    border-radius: 20px;
+  }
 }
 
-/* The poster alone is not interactive. */
-.cardStatic {
-  cursor: default;
-}
-
-.cardStatic:active {
-  transform: none;
-}
-
-.video {
-  display: block;
+.showreel video,
+.showreel img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.expand {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: rgba(13, 0, 0, 0.55);
-  color: #fff;
-  transition: background-color 150ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .card:not(.cardStatic):hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 0 0 1px var(--line),
-      0 2px 4px rgba(13, 0, 0, 0.06),
-      0 24px 46px -16px rgba(13, 0, 0, 0.34);
-  }
-
-  .card:hover .expand {
-    background: rgba(13, 0, 0, 0.78);
-  }
 }

@@ -1,26 +1,56 @@
-.list {
+/* The ticker: logos drift slowly to the left, pause on hover, fade out at both ends. */
+
+.marquee {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.rail {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  width: max-content;
+  animation: scroll 46s linear infinite;
+  will-change: transform;
+}
+
+.marquee[data-paused='true'] .rail,
+.marquee:hover .rail {
+  animation-play-state: paused;
+}
+
+/* Four identical copies: moving by one copy (a quarter of the rail) loops without a jump. */
+@keyframes scroll {
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+.copy {
+  display: flex;
+  gap: 40px;
   margin: 0;
-  padding: 0;
+  /* Room above and below for the hovered logo to lift, and the trailing gap of the loop. */
+  padding: 14px 40px 14px 0;
   list-style: none;
 }
 
 .cell {
-  position: relative;
-  width: 40px;
-  height: 40px;
+  flex: none;
+  width: 52px;
+  height: 52px;
 }
 
 .logo {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   padding: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 11px;
+  border-radius: 14px;
   background: none;
   cursor: default;
   box-shadow: 0 0 0 1px rgba(13, 0, 0, 0.06);
@@ -40,10 +70,42 @@
   user-select: none;
 }
 
+/* With reduced motion the logos stand still, on one wrapping row. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .rail {
+    width: auto;
+    animation: none;
+  }
+
+  .copy {
+    flex-wrap: wrap;
+    gap: 14px 24px;
+  }
+
+  .copy:not(:first-child) {
+    display: none;
+  }
+}
+
+/* Detail card, shown above the logo. It lives in a layer on the page, outside the clipped ticker. */
+
+.tipLayer {
+  position: fixed;
+  z-index: 60;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
 .card {
   position: absolute;
-  bottom: calc(100% + 8px);
-  z-index: 30;
+  bottom: 8px;
   width: 176px;
   overflow: hidden;
   border-radius: 8px;
@@ -55,12 +117,12 @@
 }
 
 .cardStart {
-  left: calc(50% - 4px);
+  left: -4px;
   transform-origin: bottom left;
 }
 
 .cardEnd {
-  right: calc(50% - 4px);
+  right: -4px;
   transform-origin: bottom right;
 }
 
@@ -78,7 +140,7 @@
   letter-spacing: 0.05em;
   line-height: 1.2;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--ink-muted);
 }
 
 .value {

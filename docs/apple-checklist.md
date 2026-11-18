@@ -18,7 +18,7 @@ Everything marked **to re-check live** must be re-run against the real domain af
 | 6 | The work email address uses the organization's domain | `contact@spicy-web-house.com`, shown in the footer, on `/contact`, `/about`, `/legal-notice`, `/privacy`, `/terms`. **Make sure this mailbox exists and receives mail**, and use it in the enrollment. | **Owner to confirm** |
 | 7 | The organization is a legal entity that can enter into contracts | `/legal-notice`: "Limited liability company (LLC), organized under the laws of the State of Wyoming", Wyoming Filing ID 2026-001904234, registered agent. | Done |
 | 8 | The name and address match the D-U-N-S record (identity, legal entity status, address) | Name "Spicy Web House LLC" and address "604 Carson Dr, NT-00181, Bear, DE 19701, United States" on `/legal-notice`, `/about`, `/contact` and in the JSON-LD. Confirmed by the owner on 2026-11-18 as identical to the D-U-N-S record. The D-U-N-S number itself is not shown on the site. | Done |
-| 9 | No trace of another company's branding | `grep -ri` finds nothing in the repository. The poster image is a neutral Spicy Web House image. The showreel video is **not published yet** (the card shows the poster alone) until a neutral file is provided. | Done, video pending |
+| 9 | No trace of another company's branding | `grep -ri` finds nothing in the repository. The poster image is a neutral Spicy Web House image. The showreel video is **not published yet** (the big video space on the home page shows the poster) until a neutral file is provided. | Done, video pending |
 
 ## Still open before sending
 

@@ -118,15 +118,25 @@ button {
   }
 }
 
+@keyframes lift {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .enter {
     animation: rise 600ms var(--ease-out) both;
     animation-delay: calc(var(--i, 0) * 70ms);
   }
 
+  /* Scroll reveal: a slight rise only, never a fade, so text is always fully opaque (contrast checks, screenshots). */
   @supports (animation-timeline: view()) {
     .reveal {
-      animation: rise linear both;
+      animation: lift linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 45%;
     }
