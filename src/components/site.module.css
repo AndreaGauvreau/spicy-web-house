@@ -65,8 +65,10 @@
   color: var(--ink-2);
 }
 
+/* Vertical padding only: the side padding comes from .container, which this element also carries. */
 .pageHeader {
-  padding: 48px 0 56px;
+  padding-top: 48px;
+  padding-bottom: 56px;
 }
 
 .pageTitle {
@@ -96,7 +98,8 @@
 
 @media (min-width: 900px) {
   .pageHeader {
-    padding: 80px 0 72px;
+    padding-top: 80px;
+    padding-bottom: 72px;
   }
 }
 

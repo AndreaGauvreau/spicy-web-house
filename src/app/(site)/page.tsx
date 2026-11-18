@@ -11,6 +11,7 @@ import { faqHeadline, homeFaq } from '@/content/faq'
 import { homeCta, hero, howWeWork, makes, selectedWork, statement, toolkit, why } from '@/content/home'
 import { company, site, siteUrl } from '@/content/site'
 import { projects } from '@/content/work'
+import { openGraphImages, twitterImages } from '@/lib/metadata'
 import home from '@/components/home.module.css'
 import s from '@/components/site.module.css'
 
@@ -20,8 +21,15 @@ export const metadata: Metadata = {
   title: { absolute: title },
   description: site.description,
   alternates: { canonical: '/' },
-  openGraph: { type: 'website', siteName: site.name, title, description: site.description, url: '/' },
-  twitter: { card: 'summary_large_image', title, description: site.description },
+  openGraph: {
+    type: 'website',
+    siteName: site.name,
+    title,
+    description: site.description,
+    url: '/',
+    images: openGraphImages,
+  },
+  twitter: { card: 'summary_large_image', title, description: site.description, images: twitterImages },
 }
 
 const jsonLd = {

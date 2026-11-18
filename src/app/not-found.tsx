@@ -1,22 +1,24 @@
-import Link from 'next/link'
+import { ButtonLink } from '@/components/Button'
+import { PageHeader } from '@/components/Section'
+import { SiteShell } from '@/components/SiteShell'
+import s from '@/components/site.module.css'
 
 export default function NotFound() {
   return (
-    <main
-      style={{
-        minHeight: '100svh',
-        display: 'grid',
-        placeContent: 'center',
-        gap: 12,
-        padding: 24,
-        textAlign: 'center',
-      }}
-    >
-      <h1 style={{ margin: 0, fontSize: 28, fontWeight: 500, letterSpacing: '-0.03em' }}>Page not found</h1>
-      <p style={{ margin: 0, color: 'var(--ink-2)' }}>This page does not exist or has moved.</p>
-      <p style={{ margin: 0 }}>
-        <Link href="/">Back to the home page</Link>
-      </p>
-    </main>
+    <SiteShell>
+      <PageHeader
+        eyebrow="404"
+        title="Page not found."
+        sub="This page does not exist or has moved. Head back to the home page, or tell us what you were looking for."
+      >
+        <ButtonLink href="/" arrow>
+          Back to the home page
+        </ButtonLink>
+        <ButtonLink href="/contact" variant="ghost">
+          Contact us
+        </ButtonLink>
+      </PageHeader>
+      <div className={s.container} style={{ paddingBottom: 96 }} />
+    </SiteShell>
   )
 }
