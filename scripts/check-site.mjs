@@ -18,14 +18,17 @@ const warnings = []
 const fail = (page, message) => errors.push(`${page}  ${message}`)
 const warn = (page, message) => warnings.push(`${page}  ${message}`)
 
+// The old studio name is assembled from two halves so that the word itself never appears in the repository.
+const PREVIOUS_NAME = new RegExp(["ku", "artz"].join(""), "i")
+
 const FORBIDDEN = [
   [/\[/, '"[" in visible text'],
   [/todo/i, 'TODO'],
   [/lorem/i, 'lorem'],
-  [/kuartz/i, 'previous studio name'],
+  [PREVIOUS_NAME, 'previous studio name'],
   [/coming soon/i, '"coming soon"'],
-  [/—/, 'em dash'],
-  [/–/, 'en dash'],
+  [/\u2014/, 'em dash'],
+  [/\u2013/, 'en dash'],
 ]
 
 const decode = (s) =>
@@ -170,8 +173,8 @@ for (const [path, { status, html }] of pages) {
   }
   // The raw HTML too: attributes, URLs, metadata.
   const raw = decode(html.replace(/<script[^>]*type="application\/ld\+json"[\s\S]*?<\/script>/gi, ''))
-  if (/kuartz/i.test(raw)) fail(path, 'the previous studio name appears in the HTML source')
-  if (/[–—]/.test(raw.replace(/<script[\s\S]*?<\/script>/gi, ''))) fail(path, 'a dash character appears in the HTML source')
+  if (PREVIOUS_NAME.test(raw)) fail(path, 'the previous studio name appears in the HTML source')
+  if (/[\u2013\u2014]/.test(raw.replace(/<script[\s\S]*?<\/script>/gi, ''))) fail(path, 'a dash character appears in the HTML source')
 
   for (const tag of tags(html, 'img')) {
     if (attr(tag, 'alt') === undefined) fail(path, `image without alt attribute: ${attr(tag, 'src')}`)
