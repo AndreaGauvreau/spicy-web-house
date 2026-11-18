@@ -1,47 +1,42 @@
 /* Hero: the text on the left, a big video space below, then the client logos. */
 
 .hero {
-  padding: 40px 0 8px;
+  padding: clamp(32px, 5vw, 64px) 0 var(--s-2);
 }
 
 .heroText {
-  max-width: 800px;
+  max-width: 760px;
 }
 
 .heroTitle {
   margin: 0;
-  font-size: clamp(30px, 4.2vw, 56px);
+  font-size: var(--fs-h1);
   font-weight: 500;
-  line-height: 1.04;
-  letter-spacing: -0.045em;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-h1);
   text-wrap: balance;
 }
 
 .heroSub {
-  margin: 20px 0 0;
-  max-width: 60ch;
-  font-size: clamp(17px, 1.5vw, 19px);
-  line-height: 1.55;
+  margin: var(--s-4) 0 0;
+  max-width: 56ch;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-lead);
   color: var(--ink-2);
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-@media (min-width: 960px) {
-  .hero {
-    padding-top: 64px;
-  }
+  gap: var(--s-3);
+  margin-top: var(--s-5);
 }
 
 /* The video space: the full width of the content, the shape of the video. */
 
 .mediaWrap {
-  margin-top: 44px;
+  margin-top: var(--s-7);
 }
 
 .showreel {
@@ -49,7 +44,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   background: var(--card);
   box-shadow:
     0 0 0 1px var(--line),
@@ -60,7 +55,7 @@
 @media (min-width: 720px) {
   .showreel {
     aspect-ratio: var(--aspect, 2);
-    border-radius: 20px;
+    border-radius: var(--r-xl);
   }
 }
 

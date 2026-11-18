@@ -1,4 +1,4 @@
-/* Header */
+/* Header: 76 px tall, 14 px links, one small pill on the right. */
 
 .header {
   position: sticky;
@@ -14,31 +14,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--s-4);
   width: 100%;
-  max-width: var(--container);
-  min-height: 68px;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  height: 76px;
   margin: 0 auto;
-  padding: 10px var(--gutter);
+  padding: 0 var(--gutter);
 }
 
 .brand {
   display: block;
   line-height: 0;
   color: var(--ink);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
 }
 
 .logo {
   display: block;
   width: auto;
-  height: 42px;
+  height: 40px;
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--s-2);
 }
 
 .bookDesktop {
@@ -48,15 +48,15 @@
 .menuButton {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 16px;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   background: var(--card);
   box-shadow: inset 0 0 0 1px rgba(13, 0, 0, 0.16);
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 500;
+  line-height: 1.4;
   cursor: pointer;
 }
 
@@ -109,7 +109,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  padding: 8px var(--gutter) 20px;
+  padding: var(--s-2) var(--gutter) var(--s-5);
   border-bottom: 1px solid var(--line);
   background: var(--bg);
 }
@@ -129,11 +129,11 @@
 .nav a {
   display: flex;
   align-items: center;
-  height: 52px;
-  padding: 0 14px;
-  border-radius: 12px;
+  height: 48px;
+  padding: 0 var(--s-3);
+  border-radius: var(--r-md);
   color: var(--ink-2);
-  font-size: 18px;
+  font-size: var(--fs-lead);
   font-weight: 500;
   text-decoration: none;
   transition:
@@ -147,16 +147,17 @@
 }
 
 .navCta {
-  margin-top: 12px;
+  margin-top: var(--s-3);
 }
 
 .navCta a {
   justify-content: center;
-  height: 48px;
-  border-radius: 999px;
+  height: auto;
+  padding: var(--s-3) 20px;
+  border-radius: var(--r-pill);
   background: var(--ink);
   color: #fff;
-  font-size: 15px;
+  font-size: var(--fs-ui);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -175,8 +176,6 @@
   .bar {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 
   .actions {
@@ -189,7 +188,7 @@
   }
 
   .bookDesktop {
-    display: inline-flex;
+    display: block;
   }
 
   .nav,
@@ -203,14 +202,14 @@
 
   .nav ul {
     flex-direction: row;
-    gap: 4px;
+    gap: var(--s-1);
   }
 
   .nav a {
-    height: 40px;
-    padding: 0 16px;
-    border-radius: 999px;
-    font-size: 15px;
+    height: auto;
+    padding: 10px var(--s-4);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-body);
   }
 }
 
@@ -223,43 +222,42 @@
 
 .footerInner {
   display: grid;
-  gap: 40px 32px;
+  gap: var(--s-7) var(--s-5);
   width: 100%;
-  max-width: var(--container);
+  max-width: calc(var(--container) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 56px var(--gutter) 40px;
+  padding: var(--section-y) var(--gutter) var(--s-7);
   grid-template-columns: 1fr 1fr;
 }
 
 .footerBrand {
   grid-column: 1 / -1;
-  max-width: 340px;
+  max-width: 320px;
 }
 
 .footerLogo {
   display: block;
   width: auto;
-  height: 64px;
+  height: 56px;
   color: var(--bg);
 }
 
 .footerLogoLink {
   display: inline-block;
   line-height: 0;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
 }
 
 .footerTagline {
-  margin: 20px 0 0;
-  font-size: 17px;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
-  color: rgba(255, 244, 244, 0.86);
+  margin: var(--s-4) 0 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: rgba(255, 244, 244, 0.78);
 }
 
 .colTitle {
-  margin: 0 0 14px;
-  font-size: 13px;
+  margin: 0 0 var(--s-4);
+  font-size: var(--fs-xs);
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -268,7 +266,7 @@
 
 .footer ul {
   display: grid;
-  gap: 2px;
+  gap: var(--s-1);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -276,9 +274,9 @@
 
 .footer a {
   display: inline-block;
-  padding: 5px 0;
+  padding: var(--s-1) 0;
   color: var(--bg);
-  font-size: 15px;
+  font-size: var(--fs-body);
   text-decoration: none;
   text-underline-offset: 3px;
 }
@@ -289,16 +287,16 @@
 
 .footerBottom {
   width: 100%;
-  max-width: var(--container);
+  max-width: calc(var(--container) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 20px var(--gutter) 32px;
+  padding: var(--s-5) var(--gutter) var(--s-6);
   border-top: 1px solid rgba(255, 244, 244, 0.16);
 }
 
 .footerBottom p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
   color: rgba(255, 244, 244, 0.68);
 }
 
@@ -311,7 +309,6 @@
 @media (min-width: 900px) {
   .footerInner {
     grid-template-columns: 1.4fr 1fr 1fr 1fr 1.8fr;
-    padding-top: 72px;
   }
 
   .footerBrand {

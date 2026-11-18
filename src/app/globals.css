@@ -16,8 +16,51 @@
   /* Small muted text: --ink-3 is too light for body-size copy (contrast 3.9:1), this one reaches 6:1. */
   --ink-muted: #6e5a5a;
 
-  --container: 1160px;
-  --gutter: 20px;
+  /*
+   * Type scale, spacing and radii, tuned on the Figma reference (Geist, 14 px body, 16 px lead,
+   * big headings kept modest, 16 px cards with 24 px padding and gaps, pill buttons).
+   */
+  --fs-xs: 12px; /* labels, tags */
+  --fs-sm: 13px; /* card details, captions */
+  --fs-body: 14px; /* body text, links, nav */
+  --fs-ui: 15px; /* buttons */
+  --fs-lead: 16px; /* text under a heading, long reading text, form fields */
+  --fs-h4: 16px; /* small headings inside cards */
+  --fs-h3: 20px; /* card titles */
+  --fs-card: 24px; /* project names */
+  --fs-h2-sm: clamp(24px, 2.6vw, 32px); /* service headings */
+  --fs-h2: clamp(28px, 3.3vw, 40px); /* section headings */
+  --fs-h1: clamp(34px, 4.2vw, 56px); /* page and hero titles */
+  --fs-stat: clamp(56px, 8vw, 88px); /* the big figure on the About page */
+
+  --lh-display: 1; /* h1 */
+  --lh-heading: 1.1; /* h2, h3 */
+  --lh-body: 1.5;
+
+  --ls-body: -0.011em;
+  --ls-lead: -0.023em;
+  --ls-h3: -0.02em;
+  --ls-h2: -0.024em;
+  --ls-h1: -0.05em;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 80px;
+  --section-y: clamp(56px, 7vw, 80px);
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px; /* cards, panels, inputs' containers */
+  --r-xl: clamp(20px, 2.2vw, 32px); /* hero video, final call to action */
+  --r-pill: 999px;
+
+  --container: 1280px;
+  --gutter: clamp(20px, 5.6vw, 80px);
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-move: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -44,8 +87,9 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

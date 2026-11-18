@@ -1,23 +1,22 @@
 .layout {
   display: grid;
-  gap: 24px;
-  padding-bottom: 72px;
+  gap: var(--s-5);
+  padding-bottom: var(--section-y);
 }
 
 @media (min-width: 960px) {
   .layout {
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    gap: 48px;
+    gap: var(--s-5);
     align-items: start;
-    padding-bottom: 112px;
   }
 }
 
 /* Form */
 
 .formCard {
-  padding: clamp(24px, 4vw, 40px);
-  border-radius: 28px;
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: var(--r-lg);
   background: var(--card);
   box-shadow:
     0 0 0 1px var(--line),
@@ -26,12 +25,12 @@
 
 .form {
   display: grid;
-  gap: 22px;
+  gap: var(--s-5);
 }
 
 .pair {
   display: grid;
-  gap: 22px;
+  gap: var(--s-5);
 }
 
 @media (min-width: 640px) {
@@ -42,12 +41,12 @@
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: var(--s-2);
 }
 
 .label,
 .legend {
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 500;
 }
 
@@ -57,26 +56,27 @@
   color: var(--ink-muted);
 }
 
+/* 16 px in the fields: smaller text makes iPhones zoom the page when a field is focused. */
 .input,
 .textarea {
   width: 100%;
-  height: 50px;
-  padding: 0 16px;
+  height: 48px;
+  padding: 0 var(--s-4);
   border: 0;
-  border-radius: 12px;
+  border-radius: var(--r-md);
   background: var(--bg);
   box-shadow: inset 0 0 0 1px var(--line);
   color: var(--ink);
   font: inherit;
-  font-size: 16px;
+  font-size: var(--fs-lead);
   transition: box-shadow 150ms ease;
 }
 
 .textarea {
   height: auto;
-  min-height: 168px;
-  padding: 14px 16px;
-  line-height: 1.5;
+  min-height: 160px;
+  padding: var(--s-3) var(--s-4);
+  line-height: var(--lh-body);
   resize: vertical;
 }
 
@@ -101,13 +101,13 @@
 
 .legend {
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: var(--s-3);
 }
 
 .choices {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--s-2);
 }
 
 .choice {
@@ -127,12 +127,12 @@
 .choice span {
   display: inline-flex;
   align-items: center;
-  height: 44px;
-  padding: 0 18px;
-  border-radius: 999px;
+  padding: 10px 20px;
+  border-radius: var(--r-pill);
   background: var(--bg);
   box-shadow: inset 0 0 0 1px var(--line);
-  font-size: 15px;
+  font-size: var(--fs-body);
+  line-height: 1.4;
   transition:
     background-color 150ms ease,
     color 150ms ease,
@@ -160,22 +160,22 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px 20px;
+  gap: var(--s-3) var(--s-5);
 }
 
 .hint {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--ink-muted);
 }
 
 .status {
   margin: 0;
-  padding: 18px 20px;
-  border-radius: 16px;
+  padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-md);
   background: var(--brand-soft);
-  line-height: 1.55;
+  line-height: var(--lh-body);
 }
 
 .status a {
@@ -188,12 +188,12 @@
 
 .aside {
   display: grid;
-  gap: 16px;
+  gap: var(--s-5);
 }
 
 .panel {
-  padding: 28px;
-  border-radius: 22px;
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
   background: var(--card);
   box-shadow:
     0 0 0 1px var(--line),
@@ -201,27 +201,27 @@
 }
 
 .panelTitle {
-  margin: 0 0 18px;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  margin: 0 0 var(--s-4);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-h3);
 }
 
 .contactList {
   display: grid;
-  gap: 16px;
+  gap: var(--s-4);
   margin: 0;
 }
 
 .contactList dt {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--ink-muted);
 }
 
 .contactList dd {
   margin: 2px 0 0;
-  line-height: 1.5;
+  line-height: var(--lh-body);
 }
 
 .contactList a {
@@ -232,7 +232,7 @@
 
 .nextList {
   display: grid;
-  gap: 16px;
+  gap: var(--s-4);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -240,8 +240,8 @@
 
 .nextList li {
   display: flex;
-  gap: 14px;
-  line-height: 1.5;
+  gap: var(--s-3);
+  line-height: var(--lh-body);
   color: var(--ink-2);
 }
 
@@ -249,20 +249,19 @@
   flex: none;
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--brand-soft);
   color: var(--brand-ink);
-  font-size: 13px;
+  font-size: var(--fs-xs);
   font-weight: 600;
 }
 
 .reassure {
   margin: 0;
-  padding: 4px 6px 0;
-  font-size: 17px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
+  padding: 0 var(--s-1);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--ink-2);
 }

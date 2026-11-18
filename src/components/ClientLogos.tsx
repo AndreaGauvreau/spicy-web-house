@@ -2,135 +2,87 @@
 
 import { AnimatePresence, MotionConfig, motion, stagger, useReducedMotion } from 'motion/react'
 import Image from 'next/image'
-import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react'
-import { createPortal } from 'react-dom'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { clients, type Client } from '@/content/clients'
 import { EASE_OUT } from './motion'
 import styles from './clients.module.css'
 
 const TIP_WIDTH = 176
-/** Identical copies of the list: moving by one copy loops the ticker without a jump (see clients.module.css). */
-const COPIES = 4
 
 type Align = 'start' | 'end'
 
-/** Where the detail card opens: above the hovered logo. Kept after closing so the card can fade out in place. */
-type Anchor = { index: number; copy: number; x: number; y: number; align: Align }
-
-const noSubscription = () => () => {}
-const useIsClient = () =>
-  useSyncExternalStore(
-    noSubscription,
-    () => true,
-    () => false,
-  )
-
-/** Client logos in a slow ticker. The hovered logo lifts and a card with its details opens above it. */
+/** Client logos side by side. The hovered logo lifts and a card with its details opens above it. */
 export function ClientLogos() {
-  const [anchor, setAnchor] = useState<Anchor | null>(null)
-  const [shown, setShown] = useState(false)
+  const [active, setActive] = useState<number | null>(null)
+  const [align, setAlign] = useState<Align>('start')
+  const listRef = useRef<HTMLUListElement>(null)
   const lastPointer = useRef<string>('mouse')
   const tipId = useId()
-  const isClient = useIsClient()
 
-  const open = (index: number, copy: number, trigger: HTMLElement) => {
+  const open = (index: number, trigger: HTMLElement) => {
     const rect = trigger.getBoundingClientRect()
-    const x = rect.left + rect.width / 2
-    setAnchor({ index, copy, x, y: rect.top, align: x - 4 + TIP_WIDTH > window.innerWidth - 12 ? 'end' : 'start' })
-    setShown(true)
+    const center = rect.left + rect.width / 2
+    setAlign(center - 4 + TIP_WIDTH > window.innerWidth - 12 ? 'end' : 'start')
+    setActive(index)
   }
-  const close = (index: number, copy: number) => {
-    if (anchor?.index === index && anchor.copy === copy) setShown(false)
-  }
+  const close = (index: number) => setActive((current) => (current === index ? null : current))
 
-  // Touch: a tap opens the card, a tap elsewhere, a scroll or Escape closes it.
+  // Touch: a tap opens the card, a tap elsewhere or Escape closes it.
   useEffect(() => {
-    if (!shown) return
-    const hide = () => setShown(false)
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') hide()
-    }
+    if (active === null) return
     const onDown = (event: PointerEvent) => {
-      if (!(event.target as Element).closest('[data-client-logo]')) hide()
+      if (!listRef.current?.contains(event.target as Node)) setActive(null)
+    }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActive(null)
     }
     document.addEventListener('pointerdown', onDown)
     document.addEventListener('keydown', onKey)
-    window.addEventListener('scroll', hide, { passive: true })
     return () => {
       document.removeEventListener('pointerdown', onDown)
       document.removeEventListener('keydown', onKey)
-      window.removeEventListener('scroll', hide)
     }
-  }, [shown])
-
-  const isActive = (index: number, copy: number) => shown && anchor?.index === index && anchor.copy === copy
+  }, [active])
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className={styles.marquee} data-paused={shown}>
-        <div className={styles.rail}>
-          {Array.from({ length: COPIES }, (_, copy) => (
-            <ul
-              key={copy}
-              className={styles.copy}
-              aria-label={copy === 0 ? 'Clients' : undefined}
-              aria-hidden={copy > 0 ? true : undefined}
+      <ul ref={listRef} className={styles.list} aria-label="Clients">
+        {clients.map((client, index) => (
+          <li key={client.name} className={styles.cell}>
+            <button
+              type="button"
+              className={styles.logo}
+              data-active={active === index}
+              aria-label={client.name}
+              aria-describedby={active === index ? `${tipId}-${index}` : undefined}
+              onPointerDown={(event) => {
+                lastPointer.current = event.pointerType
+              }}
+              onPointerEnter={(event) => {
+                if (event.pointerType === 'mouse') open(index, event.currentTarget)
+              }}
+              onPointerLeave={(event) => {
+                if (event.pointerType === 'mouse') close(index)
+              }}
+              onFocus={(event) => {
+                if (event.currentTarget.matches(':focus-visible')) open(index, event.currentTarget)
+              }}
+              onBlur={() => close(index)}
+              onClick={(event) => {
+                if (event.detail === 0 || lastPointer.current === 'mouse') return
+                if (active === index) setActive(null)
+                else open(index, event.currentTarget)
+              }}
             >
-              {clients.map((client, index) => (
-                <li key={client.name} className={styles.cell}>
-                  <button
-                    type="button"
-                    className={styles.logo}
-                    data-client-logo=""
-                    data-active={isActive(index, copy)}
-                    aria-label={client.name}
-                    aria-describedby={isActive(index, copy) ? tipId : undefined}
-                    tabIndex={copy === 0 ? 0 : -1}
-                    onPointerDown={(event) => {
-                      lastPointer.current = event.pointerType
-                    }}
-                    onPointerEnter={(event) => {
-                      if (event.pointerType === 'mouse') open(index, copy, event.currentTarget)
-                    }}
-                    onPointerLeave={(event) => {
-                      if (event.pointerType === 'mouse') close(index, copy)
-                    }}
-                    onFocus={(event) => {
-                      if (event.currentTarget.matches(':focus-visible')) open(index, copy, event.currentTarget)
-                    }}
-                    onBlur={() => close(index, copy)}
-                    onClick={(event) => {
-                      if (event.detail === 0 || lastPointer.current === 'mouse') return
-                      if (isActive(index, copy)) setShown(false)
-                      else open(index, copy, event.currentTarget)
-                    }}
-                  >
-                    <Image src={client.logo} alt="" width={52} height={52} sizes="52px" draggable={false} />
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
-      </div>
+              <Image src={client.logo} alt="" width={48} height={48} sizes="48px" draggable={false} />
+            </button>
 
-      {isClient
-        ? createPortal(
-            <div className={styles.tipLayer} style={anchor ? { left: anchor.x, top: anchor.y } : undefined}>
-              <AnimatePresence>
-                {shown && anchor ? (
-                  <Card
-                    key={`${anchor.index}-${anchor.copy}`}
-                    id={tipId}
-                    client={clients[anchor.index]}
-                    align={anchor.align}
-                  />
-                ) : null}
-              </AnimatePresence>
-            </div>,
-            document.body,
-          )
-        : null}
+            <AnimatePresence>
+              {active === index ? <Card key="card" id={`${tipId}-${index}`} client={client} align={align} /> : null}
+            </AnimatePresence>
+          </li>
+        ))}
+      </ul>
     </MotionConfig>
   )
 }

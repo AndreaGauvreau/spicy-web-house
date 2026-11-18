@@ -1,29 +1,30 @@
 .doc {
   width: 100%;
-  max-width: 760px;
+  max-width: calc(720px + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 48px var(--gutter) 96px;
+  padding: clamp(40px, 5vw, 64px) var(--gutter) var(--s-8);
 }
 
 .doc h1 {
-  margin: 0 0 6px;
-  font-size: clamp(34px, 6vw, 52px);
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-h2);
   font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-h2);
 }
 
 .sub {
-  margin: 0 0 40px;
-  font-size: 14px;
+  margin: 0 0 var(--s-7);
+  font-size: var(--fs-sm);
   color: var(--ink-muted);
 }
 
 .doc h2 {
-  margin: 40px 0 10px;
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  margin: var(--s-7) 0 var(--s-2);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-h3);
 }
 
 .doc p,
@@ -33,12 +34,12 @@
 }
 
 .doc p {
-  margin: 0 0 14px;
+  margin: 0 0 var(--s-3);
 }
 
 .doc ul {
-  margin: 0 0 14px;
-  padding-left: 20px;
+  margin: 0 0 var(--s-3);
+  padding-left: var(--s-5);
 }
 
 .doc li {
@@ -53,9 +54,8 @@
 .facts {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2px 24px;
-  margin: 0 0 14px;
-  padding: 4px 0;
+  margin: 0 0 var(--s-3);
+  padding: var(--s-1) 0;
   border-top: 1px solid var(--line);
 }
 
@@ -63,12 +63,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2px;
-  padding: 12px 0;
+  padding: var(--s-3) 0;
   border-bottom: 1px solid var(--line);
 }
 
 .facts dt {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--ink-muted);
 }
 
@@ -88,6 +88,6 @@
 @media (min-width: 720px) {
   .facts div {
     grid-template-columns: 200px 1fr;
-    gap: 24px;
+    gap: var(--s-5);
   }
 }

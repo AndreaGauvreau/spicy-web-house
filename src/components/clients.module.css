@@ -1,56 +1,39 @@
-/* The ticker: logos drift slowly to the left, pause on hover, fade out at both ends. */
+/* The logos, side by side and still. Wrapped on small screens, spread over the row on large ones. */
 
-.marquee {
-  position: relative;
+.list {
+  display: flex;
   flex: 1;
+  flex-wrap: wrap;
+  gap: var(--s-4) var(--s-5);
   min-width: 0;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-
-.rail {
-  display: flex;
-  width: max-content;
-  animation: scroll 46s linear infinite;
-  will-change: transform;
-}
-
-.marquee[data-paused='true'] .rail,
-.marquee:hover .rail {
-  animation-play-state: paused;
-}
-
-/* Four identical copies: moving by one copy (a quarter of the rail) loops without a jump. */
-@keyframes scroll {
-  to {
-    transform: translateX(-25%);
-  }
-}
-
-.copy {
-  display: flex;
-  gap: 40px;
   margin: 0;
-  /* Room above and below for the hovered logo to lift, and the trailing gap of the loop. */
-  padding: 14px 40px 14px 0;
+  padding: 0;
   list-style: none;
 }
 
+@media (min-width: 800px) {
+  .list {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: var(--s-3);
+  }
+}
+
 .cell {
+  position: relative;
   flex: none;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
 }
 
 .logo {
   display: block;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 14px;
+  border-radius: var(--r-md);
   background: none;
   cursor: default;
   box-shadow: 0 0 0 1px rgba(13, 0, 0, 0.06);
@@ -70,45 +53,15 @@
   user-select: none;
 }
 
-/* With reduced motion the logos stand still, on one wrapping row. */
-@media (prefers-reduced-motion: reduce) {
-  .marquee {
-    overflow: visible;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .rail {
-    width: auto;
-    animation: none;
-  }
-
-  .copy {
-    flex-wrap: wrap;
-    gap: 14px 24px;
-  }
-
-  .copy:not(:first-child) {
-    display: none;
-  }
-}
-
-/* Detail card, shown above the logo. It lives in a layer on the page, outside the clipped ticker. */
-
-.tipLayer {
-  position: fixed;
-  z-index: 60;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-}
+/* Detail card, shown above the logo */
 
 .card {
   position: absolute;
-  bottom: 8px;
+  bottom: calc(100% + 8px);
+  z-index: 30;
   width: 176px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--card);
   pointer-events: none;
   box-shadow:
@@ -117,17 +70,17 @@
 }
 
 .cardStart {
-  left: -4px;
+  left: calc(50% - 4px);
   transform-origin: bottom left;
 }
 
 .cardEnd {
-  right: -4px;
+  right: calc(50% - 4px);
   transform-origin: bottom right;
 }
 
 .row {
-  padding: 9px 12px 9px;
+  padding: 10px var(--s-3);
 }
 
 .row + .row {
@@ -146,7 +99,7 @@
 .value {
   display: block;
   margin-top: 3px;
-  font-size: 13px;
+  font-size: var(--fs-sm);
   line-height: 1.25;
   color: var(--ink);
 }
