@@ -1,6 +1,7 @@
 # Draft reply to Apple Developer Support
 
-To send only after the production deploy, once `npm run check:site https://www.spicy-web-house.com` is green.
+The site is deployed and was checked live on 2026-11-18 (`npm run check:site https://www.spicy-web-house.com`).
+Send it from contact@spicy-web-house.com once you have tested that the mailbox receives mail.
 
 ---
 
@@ -25,8 +26,9 @@ The site includes:
 - Terms: https://www.spicy-web-house.com/terms
 
 Spicy Web House LLC is a limited liability company organized in the State of Wyoming, United States (Wyoming Filing ID
-2026-001904234). Our legal name, principal office and contact details appear in the footer of every page and on the
-legal notice page.
+2026-001904234). Our legal name, state of registration and email address appear in the footer of every page, and the
+legal notice page gives our Wyoming Filing ID, registered agent and principal office. The legal name and address shown
+on the website are the same as on our D-U-N-S record.
 
 Could you please review our enrollment again with this website? If you need any further document or information, we
 will send it right away.
