@@ -28,14 +28,14 @@ Everything the site says lives in `src/content/`:
 
 | File | What |
 |---|---|
-| `site.ts` | Company identity (legal name, address, Wyoming Filing ID, registered agent, email), hosting, booking button, showreel video |
+| `site.ts` | Company identity (legal name, address, Wyoming Filing ID, registered agent, email), hosting, the Contact button, showreel video |
 | `home.ts`, `services.ts`, `work.ts`, `about.ts`, `contact.ts`, `faq.ts` | The copy of each page |
 | `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the card shown on hover |
 | `nav.ts` | Header and footer links |
 
 Pages are in `src/app/(site)/` (Home, Services, Work, About, Contact) and `src/app/(legal)/`. Add a new public page to `routes` in `src/app/sitemap.ts` and give it `pageMetadata()` from `src/lib/metadata.ts` (unique title, description, canonical URL, social images).
 
-**Contact form and booking.** The form prepares an email in the visitor's own email app, so nothing passes through this site and no service is needed. The "Book a free intro call" buttons lead to `/contact`; put an `https://` link in `booking.href` to open a booking page instead.
+**Contact.** The form prepares an email in the visitor's own email app, so nothing passes through this site and no service is needed. The "Contact" buttons (the header, the end of each page; `contactCta` in `site.ts`) lead to `/contact`.
 
 **Hero.** The text, then a big video space in the middle, then the client logos side by side (still, with a detail card on hover). **Showreel.** `showreel.src` in `site.ts` is empty while the video is pending: the poster (`public/media/poster.jpg`) fills the space. Set `src` to a neutral URL (for example `/media/showreel.mp4`) and `pending` to `false` and the video plays there, silent and looping. `showreel.aspect` is its width over height (2 by default; 4 over 3 on phones).
 

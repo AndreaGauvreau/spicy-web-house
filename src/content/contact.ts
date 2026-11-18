@@ -4,6 +4,9 @@ export const contactPage = {
   sub: 'Book a free intro call or send us a few lines. We read every message and reply personally.',
 }
 
+/** The "Call" line of the direct contact block: a link down to the form, where the visitor asks for the call. */
+export const callLabel = 'Book a free intro call'
+
 export const needOptions = ['Website', 'Web app', 'Mobile app', 'Brand and motion', 'Not sure yet'] as const
 
 export const form = {

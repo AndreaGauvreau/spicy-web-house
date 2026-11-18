@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { navLinks } from '@/content/nav'
-import { booking } from '@/content/site'
-import { BookButton } from './Button'
+import { contactCta } from '@/content/site'
+import { ContactButton } from './Button'
 import { Logo } from './Logo'
 import styles from './shell.module.css'
 
-/** Logo, main navigation and the booking button. On small screens the links open in a panel. */
+/** Logo, main navigation and the Contact button. On small screens the links open in a panel. */
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
@@ -44,15 +44,15 @@ export function SiteHeader() {
             ))}
           </ul>
           <div className={styles.navCta}>
-            <Link href={booking.href} onClick={close}>
-              {booking.label}
+            <Link href={contactCta.href} aria-current={isCurrent(contactCta.href) ? 'page' : undefined} onClick={close}>
+              {contactCta.label}
             </Link>
           </div>
         </nav>
 
         <div className={styles.actions}>
           <div className={styles.bookDesktop}>
-            <BookButton small />
+            <ContactButton small current={isCurrent(contactCta.href)} />
           </div>
           <button
             type="button"

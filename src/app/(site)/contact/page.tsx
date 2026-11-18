@@ -1,7 +1,7 @@
 import { ContactForm } from '@/components/ContactForm'
 import { PageHeader } from '@/components/Section'
-import { booking, company } from '@/content/site'
-import { contactPage, nextSteps, reassurance } from '@/content/contact'
+import { company } from '@/content/site'
+import { callLabel, contactPage, nextSteps, reassurance } from '@/content/contact'
 import { pageMetadata } from '@/lib/metadata'
 import styles from '@/components/contact.module.css'
 import s from '@/components/site.module.css'
@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <div>
                   <dt>Call</dt>
                   <dd>
-                    <a href="#contact-form">{booking.label}</a>
+                    <a href="#contact-form">{callLabel}</a>
                   </dd>
                 </div>
                 <div>

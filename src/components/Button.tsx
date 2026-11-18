@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { booking } from '@/content/site'
+import { contactCta } from '@/content/site'
 import { ArrowIcon } from './icons'
 import styles from './site.module.css'
 
@@ -12,12 +12,14 @@ type ButtonLinkProps = {
   variant?: Variant
   small?: boolean
   arrow?: boolean
+  /** The button leads to the page the visitor is on. */
+  current?: boolean
 }
 
 const isExternal = (href: string) => /^https?:\/\//.test(href)
 
 /** A pill-shaped link. Internal links use the router, https links open in a new tab. */
-export function ButtonLink({ href, children, variant = 'primary', small, arrow }: ButtonLinkProps) {
+export function ButtonLink({ href, children, variant = 'primary', small, arrow, current }: ButtonLinkProps) {
   const className = [styles.btn, variant === 'primary' ? styles.btnPrimary : styles.btnGhost, small ? styles.btnSm : '']
     .filter(Boolean)
     .join(' ')
@@ -37,17 +39,17 @@ export function ButtonLink({ href, children, variant = 'primary', small, arrow }
     )
   }
   return (
-    <Link className={className} href={href}>
+    <Link className={className} href={href} aria-current={current ? 'page' : undefined}>
       {content}
     </Link>
   )
 }
 
-/** "Book a free intro call": the booking link when there is one, the contact page otherwise. */
-export function BookButton({ variant, small, arrow }: Omit<ButtonLinkProps, 'href' | 'children'>) {
+/** "Contact": leads to the contact page, where the form and the email address are. */
+export function ContactButton({ variant, small, arrow, current }: Omit<ButtonLinkProps, 'href' | 'children'>) {
   return (
-    <ButtonLink href={booking.href} variant={variant} small={small} arrow={arrow}>
-      {booking.label}
+    <ButtonLink href={contactCta.href} variant={variant} small={small} arrow={arrow} current={current}>
+      {contactCta.label}
     </ButtonLink>
   )
 }

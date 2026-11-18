@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { BookButton, ButtonLink } from '@/components/Button'
+import { ButtonLink } from '@/components/Button'
 import { Faq } from '@/components/Faq'
 import { ArrowIcon } from '@/components/icons'
 import { FinalCta, Section, SectionHead, enterStyle } from '@/components/Section'
@@ -72,8 +72,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className={`${home.heroActions} enter`} style={enterStyle(2)}>
-              <BookButton arrow />
-              <ButtonLink href="/work" variant="ghost">
+              <ButtonLink href="/work" arrow>
                 {hero.secondary}
               </ButtonLink>
             </div>

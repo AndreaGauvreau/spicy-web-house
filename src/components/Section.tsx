@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { company } from '@/content/site'
-import { BookButton } from './Button'
+import { ContactButton } from './Button'
 import styles from './site.module.css'
 
 /** Inline style that staggers the entrance of the hero blocks (see .enter in globals.css). */
@@ -89,7 +89,7 @@ export function FinalCta({ id, title, body, secondaryPrefix }: FinalCtaProps) {
           </h2>
           {body ? <p className={styles.ctaBody}>{body}</p> : null}
           <div className={styles.ctaActions}>
-            <BookButton arrow />
+            <ContactButton arrow />
             {secondaryPrefix ? (
               <p className={styles.ctaSecondary}>
                 {secondaryPrefix} <a href={`mailto:${company.email}`}>{company.email}</a>

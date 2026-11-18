@@ -1,4 +1,4 @@
-import { BookButton } from '@/components/Button'
+import { ContactButton } from '@/components/Button'
 import { Faq } from '@/components/Faq'
 import { CheckIcon } from '@/components/icons'
 import { FinalCta, PageHeader, Section, SectionHead } from '@/components/Section'
@@ -19,7 +19,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHeader eyebrow={servicesPage.eyebrow} title={servicesPage.headline} sub={servicesPage.sub}>
-        <BookButton arrow />
+        <ContactButton arrow />
       </PageHeader>
 
       <Section>

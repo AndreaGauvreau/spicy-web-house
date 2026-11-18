@@ -1,8 +1,8 @@
+/** The Contact button next to them (see contactCta) replaces a Contact link here. */
 export const navLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Work', href: '/work' },
   { label: 'Studio', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ] as const
 
 export const footerColumns = [

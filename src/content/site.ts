@@ -21,12 +21,11 @@ export const site = {
 }
 
 /**
- * The "Book a free intro call" buttons.
- * With a real booking link (https://...), they open it in a new tab.
- * Without one, they lead to the contact page.
+ * The call to action buttons (header, end of each page). There is no booking service: they lead to the
+ * contact page, which has the form (it prepares an email) and the email address.
  */
-export const booking = {
-  label: 'Book a free intro call',
+export const contactCta = {
+  label: 'Contact',
   href: '/contact',
 }
 
