@@ -1,0 +1,320 @@
+/* Header */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 244, 244, 0.86);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  backdrop-filter: saturate(1.4) blur(14px);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--container);
+  min-height: 68px;
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+}
+
+.brand {
+  display: block;
+  line-height: 0;
+  color: var(--ink);
+  border-radius: 8px;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 42px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bookDesktop {
+  display: none;
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px rgba(13, 0, 0, 0.16);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.menuIcon {
+  position: relative;
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: background-color 150ms ease;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 200ms var(--ease-out);
+}
+
+.menuIcon::before {
+  top: -5px;
+}
+
+.menuIcon::after {
+  top: 5px;
+}
+
+.header[data-open='true'] .menuIcon {
+  background: transparent;
+}
+
+.header[data-open='true'] .menuIcon::before {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.header[data-open='true'] .menuIcon::after {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* Navigation: a panel under the header on small screens */
+
+.nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 8px var(--gutter) 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.header[data-open='true'] .nav {
+  display: block;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 14px;
+  border-radius: 12px;
+  color: var(--ink-2);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.nav a[aria-current='page'] {
+  background: var(--brand-soft);
+  color: var(--ink);
+}
+
+.navCta {
+  margin-top: 12px;
+}
+
+.navCta a {
+  justify-content: center;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 15px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav a:hover {
+    background: rgba(13, 0, 0, 0.05);
+    color: var(--ink);
+  }
+
+  .navCta a:hover {
+    background: #2b1c1c;
+    color: #fff;
+  }
+}
+
+@media (min-width: 900px) {
+  .bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .actions {
+    justify-self: end;
+  }
+
+  .menuButton,
+  .navCta {
+    display: none;
+  }
+
+  .bookDesktop {
+    display: inline-flex;
+  }
+
+  .nav,
+  .header[data-open='true'] .nav {
+    display: block;
+    position: static;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .nav ul {
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .nav a {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    font-size: 15px;
+  }
+}
+
+/* Footer */
+
+.footer {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.footerInner {
+  display: grid;
+  gap: 40px 32px;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 56px var(--gutter) 40px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footerBrand {
+  grid-column: 1 / -1;
+  max-width: 340px;
+}
+
+.footerLogo {
+  display: block;
+  width: auto;
+  height: 64px;
+  color: var(--bg);
+}
+
+.footerLogoLink {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 8px;
+}
+
+.footerTagline {
+  margin: 20px 0 0;
+  font-size: 17px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgba(255, 244, 244, 0.86);
+}
+
+.colTitle {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 244, 244, 0.68);
+}
+
+.footer ul {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer a {
+  display: inline-block;
+  padding: 5px 0;
+  color: var(--bg);
+  font-size: 15px;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.footer :focus-visible {
+  outline-color: var(--bg);
+}
+
+.footerBottom {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 20px var(--gutter) 32px;
+  border-top: 1px solid rgba(255, 244, 244, 0.16);
+}
+
+.footerBottom p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 244, 244, 0.68);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: 900px) {
+  .footerInner {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.8fr;
+    padding-top: 72px;
+  }
+
+  .footerBrand {
+    grid-column: auto;
+  }
+}

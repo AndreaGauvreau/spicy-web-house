@@ -11,22 +11,16 @@ import styles from './home.module.css'
 const MAX_SCALE = 1.55
 
 /**
- * How far the card can grow without leaving the screen or covering the logo.
+ * How far the card can grow without leaving the screen or sliding under the sticky header.
  * It scales from its bottom centre, so it grows upward and its bottom edge stays put.
  */
 function fitScale(frame: HTMLElement): number {
   const width = frame.offsetWidth
   const height = frame.offsetHeight
   const { bottom } = frame.getBoundingClientRect()
+  const headerBottom = document.getElementById('site-header')?.getBoundingClientRect().bottom ?? 0
 
-  let scale = Math.min(MAX_SCALE, (window.innerWidth - 32) / width, (bottom - 12) / height)
-
-  const brand = document.getElementById('brand')?.getBoundingClientRect()
-  if (brand) {
-    const coversLogo =
-      bottom - scale * height < brand.bottom + 8 && (window.innerWidth - scale * width) / 2 < brand.right + 12
-    if (coversLogo) scale = Math.min(scale, (bottom - brand.bottom - 8) / height)
-  }
+  const scale = Math.min(MAX_SCALE, (window.innerWidth - 32) / width, (bottom - headerBottom - 12) / height)
   return Math.max(1, scale)
 }
 
@@ -35,14 +29,14 @@ export function ShowreelCard() {
   if (!showreel.src) {
     return (
       <div className={styles.frame}>
-        <div className={styles.card}>
+        <div className={`${styles.card} ${styles.cardStatic}`}>
           <Image
             className={styles.video}
             src={showreel.poster}
             alt="Spicy Web House"
             width={1280}
             height={720}
-            sizes="(max-width: 720px) 68vw, 540px"
+            sizes="(max-width: 960px) 92vw, 580px"
             priority
           />
         </div>

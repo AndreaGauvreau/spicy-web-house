@@ -14,16 +14,20 @@ export const siteHost = new URL(siteUrl).host
 
 export const site = {
   name: 'Spicy Web House',
+  tagline: 'Websites and apps that do more than look good.',
   description:
-    'Spicy Web House builds and designs websites that do more than look good: they drive real growth and results.',
-  tagline: 'We build and design websites that do more than look good,',
-  highlight: 'they drive real growth and results.',
+    'Spicy Web House is a design and engineering studio. We design, build and ship websites, web apps and mobile apps for ambitious startups and tech companies.',
   trusted: 'Trusted by leading companies',
 }
 
-/** The call to action opens an email to company.email. */
+/**
+ * The "Book a free intro call" buttons.
+ * With a real booking link (https://...), they open it in a new tab.
+ * Without one, they lead to the contact page.
+ */
 export const booking = {
-  label: 'Book a call',
+  label: 'Book a free intro call',
+  href: '/contact',
 }
 
 export const showreel = {
@@ -45,10 +49,17 @@ export const company = {
   entity: 'Limited liability company (LLC)',
   /** State of formation. */
   state: 'Wyoming',
-  /** Principal office, as filed with the Wyoming Secretary of State. */
+  /** Address shown on the site. Confirmed on 2026-11-18 as identical to the D-U-N-S record. */
   address: '604 Carson Dr, NT-00181, Bear, DE 19701, United States',
-  /** What the company does, as stated on the legal notice. */
-  activity: 'Web design and web development',
+  addressParts: {
+    street: '604 Carson Dr, NT-00181',
+    city: 'Bear',
+    region: 'DE',
+    postalCode: '19701',
+    countryCode: 'US',
+  },
+  /** What the company does, as stated on the legal notice and the About page. */
+  activity: 'Web design, web and mobile app development',
   /** Sole member. */
   manager: 'Andrea Gauvreau',
   /** Public contact address. Required on the legal notice. */
@@ -63,7 +74,10 @@ export const company = {
   vat: undefined as string | undefined,
   /** EU/UK representative (GDPR art. 27), only if one is appointed. */
   euRepresentative: undefined as string | undefined,
-  lastUpdated: '2026-10-19',
+  /** How the team works, shown on the About page. */
+  workingModel: 'Remote-first, across time zones',
+  /** Date shown on the legal pages and in the sitemap. */
+  lastUpdated: '2026-11-18',
 }
 
 export const host = {

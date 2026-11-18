@@ -1,49 +1,22 @@
-.shell {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  min-height: 100svh;
-  background: var(--bg);
-}
-
-.head {
-  padding: 22px 20px 0;
-  max-width: 760px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.back {
-  display: inline-block;
-  line-height: 0;
-  color: var(--ink);
-}
-
-.logo {
-  display: block;
-  width: auto;
-  height: 44px;
-}
-
 .doc {
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
-  padding: 32px 20px 72px;
+  padding: 48px var(--gutter) 96px;
 }
 
 .doc h1 {
   margin: 0 0 6px;
-  font-size: clamp(32px, 6vw, 48px);
+  font-size: clamp(34px, 6vw, 52px);
   font-weight: 500;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
 }
 
 .sub {
   margin: 0 0 40px;
   font-size: 14px;
-  color: var(--ink-3);
+  color: var(--ink-muted);
 }
 
 .doc h2 {
@@ -96,7 +69,7 @@
 
 .facts dt {
   font-size: 13px;
-  color: var(--ink-3);
+  color: var(--ink-muted);
 }
 
 .facts dd {
@@ -112,53 +85,7 @@
   font-size: 0.92em;
 }
 
-.foot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 18px;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 20px 20px 28px;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  color: var(--ink-3);
-}
-
-.foot nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 18px;
-}
-
-.foot a {
-  display: inline-block;
-  padding: 6px 0;
-  color: var(--ink-2);
-  text-decoration: none;
-}
-
-.foot p {
-  margin: 0;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .foot a {
-    transition: color 150ms ease;
-  }
-
-  .foot a:hover {
-    color: var(--ink);
-  }
-}
-
 @media (min-width: 720px) {
-  .head {
-    padding-top: 26px;
-  }
-
   .facts div {
     grid-template-columns: 200px 1fr;
     gap: 24px;

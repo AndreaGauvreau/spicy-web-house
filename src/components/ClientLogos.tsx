@@ -1,6 +1,7 @@
 'use client'
 
-import { AnimatePresence, motion, stagger, useReducedMotion, type Variants } from 'motion/react'
+import { AnimatePresence, MotionConfig, motion, stagger, useReducedMotion, type Variants } from 'motion/react'
+import Image from 'next/image'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { clients, type Client } from '@/content/clients'
 import { EASE_OUT } from './motion'
@@ -10,14 +11,19 @@ const TIP_WIDTH = 176
 
 type Align = 'start' | 'end'
 
-type Props = {
-  /** Entrance variants shared with the rest of the page. */
-  group: Variants
-  item: Variants
+/** The logos rise in, 30 ms apart, the first time the strip scrolls into view. */
+const group: Variants = {
+  hidden: {},
+  show: { transition: { delayChildren: stagger(0.03) } },
+}
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.3, ease: EASE_OUT } },
 }
 
 /** Client logos: the hovered one lifts, a card with its details opens above it. */
-export function ClientLogos({ group, item }: Props) {
+export function ClientLogos() {
   const [active, setActive] = useState<number | null>(null)
   const [align, setAlign] = useState<Align>('start')
   const listRef = useRef<HTMLUListElement>(null)
@@ -50,43 +56,53 @@ export function ClientLogos({ group, item }: Props) {
   }, [active])
 
   return (
-    <motion.ul ref={listRef} className={styles.list} variants={group} aria-label="Clients">
-      {clients.map((client, index) => (
-        <motion.li key={client.name} variants={item} className={styles.cell}>
-          <button
-            type="button"
-            className={styles.logo}
-            data-active={active === index}
-            aria-label={client.name}
-            aria-describedby={active === index ? `${tipId}-${index}` : undefined}
-            onPointerDown={(event) => {
-              lastPointer.current = event.pointerType
-            }}
-            onPointerEnter={(event) => {
-              if (event.pointerType === 'mouse') open(index, event.currentTarget)
-            }}
-            onPointerLeave={(event) => {
-              if (event.pointerType === 'mouse') close(index)
-            }}
-            onFocus={(event) => {
-              if (event.currentTarget.matches(':focus-visible')) open(index, event.currentTarget)
-            }}
-            onBlur={() => close(index)}
-            onClick={(event) => {
-              if (event.detail === 0 || lastPointer.current === 'mouse') return
-              if (active === index) setActive(null)
-              else open(index, event.currentTarget)
-            }}
-          >
-            <img src={client.logo} alt="" width={40} height={40} loading="lazy" draggable={false} />
-          </button>
+    <MotionConfig reducedMotion="user">
+      <motion.ul
+        ref={listRef}
+        className={styles.list}
+        variants={group}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.6 }}
+        aria-label="Clients"
+      >
+        {clients.map((client, index) => (
+          <motion.li key={client.name} variants={item} className={styles.cell}>
+            <button
+              type="button"
+              className={styles.logo}
+              data-active={active === index}
+              aria-label={client.name}
+              aria-describedby={active === index ? `${tipId}-${index}` : undefined}
+              onPointerDown={(event) => {
+                lastPointer.current = event.pointerType
+              }}
+              onPointerEnter={(event) => {
+                if (event.pointerType === 'mouse') open(index, event.currentTarget)
+              }}
+              onPointerLeave={(event) => {
+                if (event.pointerType === 'mouse') close(index)
+              }}
+              onFocus={(event) => {
+                if (event.currentTarget.matches(':focus-visible')) open(index, event.currentTarget)
+              }}
+              onBlur={() => close(index)}
+              onClick={(event) => {
+                if (event.detail === 0 || lastPointer.current === 'mouse') return
+                if (active === index) setActive(null)
+                else open(index, event.currentTarget)
+              }}
+            >
+              <Image src={client.logo} alt="" width={40} height={40} sizes="40px" draggable={false} />
+            </button>
 
-          <AnimatePresence>
-            {active === index ? <Card key="card" id={`${tipId}-${index}`} client={client} align={align} /> : null}
-          </AnimatePresence>
-        </motion.li>
-      ))}
-    </motion.ul>
+            <AnimatePresence>
+              {active === index ? <Card key="card" id={`${tipId}-${index}`} client={client} align={align} /> : null}
+            </AnimatePresence>
+          </motion.li>
+        ))}
+      </motion.ul>
+    </MotionConfig>
   )
 }
 
@@ -116,7 +132,7 @@ function Card({ id, client, align }: { id: string; client: Client; align: Align 
 
   const rows: [string, string][] = [
     ['Name', client.name],
-    ['Valuation', client.valuation],
+    ['Last valuation', client.valuation],
     ['Activity', client.activity],
   ]
 

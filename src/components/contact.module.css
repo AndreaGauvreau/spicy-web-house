@@ -1,0 +1,268 @@
+.layout {
+  display: grid;
+  gap: 24px;
+  padding-bottom: 72px;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+    padding-bottom: 112px;
+  }
+}
+
+/* Form */
+
+.formCard {
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 1px 2px rgba(13, 0, 0, 0.04);
+}
+
+.form {
+  display: grid;
+  gap: 22px;
+}
+
+.pair {
+  display: grid;
+  gap: 22px;
+}
+
+@media (min-width: 640px) {
+  .pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label,
+.legend {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.optional {
+  margin-left: 6px;
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  transition: box-shadow 150ms ease;
+}
+
+.textarea {
+  height: auto;
+  min-height: 168px;
+  padding: 14px 16px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ink-muted);
+}
+
+.input:focus-visible,
+.textarea:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.choice {
+  position: relative;
+}
+
+.choice input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.choice span {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 15px;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.choice input:checked + span {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: none;
+}
+
+.choice input:focus-visible + span {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .choice input:not(:checked):hover + span {
+    box-shadow: inset 0 0 0 1px var(--ink);
+  }
+}
+
+.submitRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.status {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--brand-soft);
+  line-height: 1.55;
+}
+
+.status a {
+  font-weight: 500;
+  color: var(--brand-ink);
+  text-underline-offset: 3px;
+}
+
+/* Side column */
+
+.aside {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 1px 2px rgba(13, 0, 0, 0.04);
+}
+
+.panelTitle {
+  margin: 0 0 18px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.contactList {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+
+.contactList dt {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.contactList dd {
+  margin: 2px 0 0;
+  line-height: 1.5;
+}
+
+.contactList a {
+  color: var(--brand-ink);
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+
+.nextList {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nextList li {
+  display: flex;
+  gap: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.nextNum {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.reassure {
+  margin: 0;
+  padding: 4px 6px 0;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+}
