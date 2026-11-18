@@ -34,8 +34,7 @@ export default function PrivacyPage() {
       <h2>What we collect</h2>
       <ul>
         <li>
-          <strong>Technical logs.</strong> When you load the site, our hosting provider ({host.name}) and the delivery
-          network that serves media such as the showreel process your IP address, browser and device type, the page
+          <strong>Technical logs.</strong> When you load the site, our hosting provider ({host.name}) processes your IP address, browser and device type, the page
           requested and the time of the request. This is needed to deliver the site and keep it secure.
         </li>
         <li>
@@ -72,8 +71,7 @@ export default function PrivacyPage() {
       <h2>Who receives it</h2>
       <p>
         Only service providers that help us run the site and our work, acting on our instructions: our hosting provider
-        ({host.name}), the delivery network that serves media such as the showreel, and our email and productivity
-        tools. We may also disclose data when the law requires it.
+        ({host.name}) and our email and productivity tools. We may also disclose data when the law requires it.
       </p>
 
       <h2>Links to other websites</h2>

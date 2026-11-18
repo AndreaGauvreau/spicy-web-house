@@ -6,6 +6,11 @@ const config: NextConfig = {
   async headers() {
     return [
       {
+        // The showreel and its poster: a week in the browser cache, then revalidated in the background.
+        source: '/media/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=86400' }],
+      },
+      {
         source: '/:path*',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },

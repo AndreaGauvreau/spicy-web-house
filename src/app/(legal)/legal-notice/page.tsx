@@ -120,8 +120,7 @@ export default function LegalNoticePage() {
 
       <h2>Third-party services and links</h2>
       <p>
-        Media such as the showreel may be served by a third-party delivery network, and the site links to the websites
-        of our clients and to other third-party services. Those services are run by their own providers under their
+        The site links to the websites of our clients and to other third-party services. Those services are run by their own providers under their
         own terms and privacy policies, and we are not responsible for their content or practices.
       </p>
 

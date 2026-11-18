@@ -37,7 +37,7 @@ Pages are in `src/app/(site)/` (Home, Services, Work, About, Contact) and `src/a
 
 **Contact.** The form prepares an email in the visitor's own email app, so nothing passes through this site and no service is needed. The "Contact" buttons (the header, the end of each page; `contactCta` in `site.ts`) lead to `/contact`.
 
-**Hero.** The text, then a big video space in the middle, then the client logos side by side (still, with a detail card on hover). **Showreel.** `showreel.src` in `site.ts` is empty while the video is pending: the poster (`public/media/poster.jpg`) fills the space. Set `src` to a neutral URL (for example `/media/showreel.mp4`) and `pending` to `false` and the video plays there, silent and looping. `showreel.aspect` is its width over height (2 by default; 4 over 3 on phones).
+**Hero.** The text, then a big video space in the middle, then the client logos side by side (still, with a detail card on hover). **Showreel.** The big video in the middle of the hero is `public/media/showreel.mp4` (poster: `public/media/poster.jpg`, its first frame): H.264, 1600 by 900, no audio track, about 6 MB, played silently in a loop without controls. To change it, replace both files and set `showreel.aspect` (width over height) in `site.ts`; with `showreel.src` empty the poster fills the space. Re-encode a new video the same way (`ffmpeg -i in.mp4 -an -map_metadata -1 -c:v libx264 -crf 30 -pix_fmt yuv420p -vf scale=1600:900 -movflags +faststart showreel.mp4`) so that it plays on every phone and stays light.
 
 **Client valuations** (hover card): the last priced funding round reported in the press. Update them when a company raises again.
 

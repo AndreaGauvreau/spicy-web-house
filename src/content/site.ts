@@ -31,17 +31,18 @@ export const contactCta = {
 
 export const showreel = {
   /**
-   * The big video in the middle of the home page hero: autoplay, muted, looping.
-   * Set it to a neutral URL (for example /media/showreel.mp4 or a CDN link) once a version
-   * without third-party branding is available. While it is undefined, the poster fills the space.
+   * The big video in the middle of the home page hero: autoplay, muted, looping, no controls.
+   * It is served by the site itself (H.264, 1600 by 900, no audio track, about 6 MB). To change it, replace
+   * public/media/showreel.mp4 and public/media/poster.jpg (its first frame), and set `aspect` to its shape.
+   * While `src` is undefined, the poster fills the space.
    */
-  src: undefined as string | undefined,
-  /** Frame shown while the video loads, or alone while there is no video. Same shape as the video. */
+  src: '/media/showreel.mp4' as string | undefined,
+  /** Frame shown while the video loads. Same shape as the video. */
   poster: '/media/poster.jpg',
-  /** Width over height of the video space on large screens (on phones it is 4 over 3). */
-  aspect: 2,
-  /** Flagged by `npm run check:placeholders` until the video is in place. */
-  pending: true,
+  /** Width over height of the video. */
+  aspect: 16 / 9,
+  /** Set to true to have `npm run check:placeholders` flag a missing video. */
+  pending: false,
 }
 
 export const company = {

@@ -58,7 +58,7 @@
 .showreel {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: var(--aspect, 16 / 9);
   overflow: hidden;
   border-radius: var(--r-lg);
   background: var(--card);
@@ -70,7 +70,6 @@
 
 @media (min-width: 720px) {
   .showreel {
-    aspect-ratio: var(--aspect, 2);
     border-radius: var(--r-xl);
   }
 }

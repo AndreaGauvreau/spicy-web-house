@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { preload } from 'react-dom'
 import { ButtonLink } from '@/components/Button'
 import { Faq } from '@/components/Faq'
 import { ArrowIcon } from '@/components/icons'
@@ -9,7 +10,7 @@ import { TrustedBy } from '@/components/TrustedBy'
 import { WorkCard } from '@/components/WorkCard'
 import { faqHeadline, homeFaq } from '@/content/faq'
 import { homeCta, hero, howWeWork, makes, selectedWork, statement, toolkit, why } from '@/content/home'
-import { company, site, siteUrl } from '@/content/site'
+import { company, showreel, site, siteUrl } from '@/content/site'
 import { projects } from '@/content/work'
 import { openGraphImages, twitterImages } from '@/lib/metadata'
 import home from '@/components/home.module.css'
@@ -53,6 +54,9 @@ const jsonLd = {
 
 export default function HomePage() {
   const [before, after] = hero.headline.split(hero.highlight)
+
+  // The poster is what the browser shows first (and the largest thing above the fold): fetch it right away.
+  preload(showreel.poster, { as: 'image', fetchPriority: 'high' })
 
   return (
     <>

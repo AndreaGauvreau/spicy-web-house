@@ -64,8 +64,7 @@ export default function TermsPage() {
 
       <h2>Third-party links and services</h2>
       <p>
-        Links and services operated by others, such as the websites of our clients and the delivery network that serves
-        media, are outside our control and are used under their own terms.
+        Links and services operated by others, such as the websites of our clients, are outside our control and are used under their own terms.
       </p>
 
       <h2>Governing law</h2>
