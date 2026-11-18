@@ -19,7 +19,10 @@ export default function WorkPage() {
 
       <TrustedBy />
 
-      <Section>
+      <Section labelledBy="projects-title">
+        <h2 id="projects-title" className="sr-only">
+          Projects
+        </h2>
         <div className={s.workGrid}>
           {projects.map((project, index) => (
             <WorkCard key={project.name} project={project} index={index} />

@@ -1,15 +1,25 @@
 # spicy-web-house
 
-One-page showcase site for **Spicy Web House LLC**: a full-height page with a showreel and a "Book a call" button, plus the legal pages (legal notice, privacy policy, terms of use).
+Website of **Spicy Web House LLC**: Home, Services, Work, About, Contact, and the legal pages (legal notice, privacy policy, terms of use).
 
-Next.js 16 (App Router) · React 19 · Motion · CSS Modules · no database, no tracking, no cookie banner.
+Next.js 16 (App Router) · React 19 · Motion · CSS Modules · TypeScript · no database, no tracking, no cookie banner.
 
 ## Run
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # also lists what is still a placeholder
+npm run dev          # http://localhost:3000
+npm run lint
+npm run typecheck
+npm run build        # also lists what is still waiting for the owner
+```
+
+After a production build (`npm run build && npm start`), two checks run against the live server:
+
+```bash
+npm run check:site                                    # crawl: pages, links, metadata, forbidden strings
+npm run screenshots                                   # full-page captures at 1440 px and 390 px in ./screenshots
+node scripts/check-site.mjs https://www.spicy-web-house.com   # the same crawl on the real domain
 ```
 
 ## What to edit
@@ -18,12 +28,20 @@ Everything the site says lives in `src/content/`:
 
 | File | What |
 |---|---|
-| `site.ts` | Button label, showreel video, company identity and contact email used by the legal pages (the button opens an email to `company.email`) |
-| `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the details shown in the card on hover |
+| `site.ts` | Company identity (legal name, address, Wyoming Filing ID, registered agent, email), hosting, booking button, showreel video |
+| `home.ts`, `services.ts`, `work.ts`, `about.ts`, `contact.ts`, `faq.ts` | The copy of each page |
+| `clients.ts` | "Trusted by" logos (square images in `public/logos/`) and the card shown on hover |
+| `nav.ts` | Header and footer links |
 
-The showreel is the video set in `showreel.src`, streamed, always muted, in the card on the page. The icon on the card enlarges it in place (a scale from its bottom centre). `public/media/poster.jpg` is the frame shown while it loads. While `showreel.src` is undefined, the card shows the poster alone.
+Pages are in `src/app/(site)/` (Home, Services, Work, About, Contact) and `src/app/(legal)/`. Add a new public page to `routes` in `src/app/sitemap.ts` and give it `pageMetadata()` from `src/lib/metadata.ts` (unique title, description, canonical URL, social images).
 
-Anything still set to `TODO` or `placeholder: true` shows as `[to be completed]` on the legal pages and is listed by:
+**Contact form and booking.** The form prepares an email in the visitor's own email app, so nothing passes through this site and no service is needed. The "Book a free intro call" buttons lead to `/contact`; put an `https://` link in `booking.href` to open a booking page instead.
+
+**Showreel.** `showreel.src` in `site.ts` is empty while the video is pending: the card shows `public/media/poster.jpg` alone. Set it to a neutral URL (for example `/media/showreel.mp4`) and `pending` to `false` to turn the video on.
+
+**Client valuations** (hover card): the last priced funding round reported in the press. Update them when a company raises again.
+
+Anything flagged `pending: true` or `needsConfirmation: true`, or set to `TODO`, is listed by:
 
 ```bash
 npm run check:placeholders
@@ -33,12 +51,16 @@ Set `STRICT_PLACEHOLDERS=1` on the Vercel **production** environment to make the
 
 ## Brand
 
-Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. Light mode only. The lockup is `src/components/Logo.tsx` (from the original SVG, recoloured for light backgrounds), the favicon is `src/app/icon.png` (also used as `apple-icon.png`). Font: Geist everywhere (`next/font/google`).
+Coral `#FF5E5E`, blush `#FFF4F4`, warm black `#0D0000`. Light mode only. The lockup is `src/components/Logo.tsx`, the favicon is `src/app/icon.png` (also used as `apple-icon.png`). Font: Geist everywhere (`next/font/google`). Motion is sober (nothing over 300 ms on interactions) and every animation respects `prefers-reduced-motion`.
 
 ## Deploy
 
-The site lives at https://www.spicy-web-house.com (the address is `siteUrl` in `src/content/site.ts`; the bare domain redirects to `www`). Push to `main` and Vercel deploys. Set `NEXT_PUBLIC_SITE_URL` only to override the address, for example on a test deployment.
+The site lives at https://www.spicy-web-house.com (the address is `siteUrl` in `src/content/site.ts`; the bare domain redirects to `www`). Push to `main` and Vercel deploys. Set `NEXT_PUBLIC_SITE_URL` only to override the address, for example on a test deployment. Deployment Protection must stay off for the production domain.
+
+## Apple Developer enrollment
+
+`docs/apple-checklist.md` maps each Apple requirement to the page and element that proves it, and lists what is still open. `docs/apple-reply.md` is the draft reply to Apple Developer Support.
 
 ## Legal pages
 
-The pages are a solid starting point for an LLC with European visitors (identification, hosting, GDPR and U.S. state privacy rights), but they are not legal advice. Have them checked by counsel once the company details are filled in.
+The pages are a solid starting point for an LLC with European visitors (identification, hosting, GDPR and U.S. state privacy rights), but they are not legal advice. Have them checked by counsel.
