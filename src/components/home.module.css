@@ -4,6 +4,22 @@
   padding: clamp(32px, 5vw, 64px) 0 var(--s-2);
 }
 
+/* The text on the left, the two buttons on the right and level with the bottom of the text on large screens. */
+.heroRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+@media (min-width: 900px) {
+  .heroRow {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--s-7);
+  }
+}
+
 .heroText {
   max-width: 760px;
 }
@@ -28,9 +44,9 @@
 
 .heroActions {
   display: flex;
+  flex: none;
   flex-wrap: wrap;
   gap: var(--s-3);
-  margin-top: var(--s-5);
 }
 
 /* The video space: the full width of the content, the shape of the video. */

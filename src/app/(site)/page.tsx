@@ -60,19 +60,18 @@ export default function HomePage() {
 
       <section className={home.hero} aria-labelledby="hero-title">
         <div className={s.container}>
-          <div className={home.heroText}>
-            <p className={`${s.eyebrow} enter`} style={enterStyle(0)}>
-              {hero.eyebrow}
-            </p>
-            <h1 id="hero-title" className={`${home.heroTitle} enter`} style={enterStyle(1)}>
-              {before}
-              <span className={s.highlight}>{hero.highlight}</span>
-              {after}
-            </h1>
-            <p className={`${home.heroSub} enter`} style={enterStyle(2)}>
-              {hero.sub}
-            </p>
-            <div className={`${home.heroActions} enter`} style={enterStyle(3)}>
+          <div className={home.heroRow}>
+            <div className={home.heroText}>
+              <h1 id="hero-title" className={`${home.heroTitle} enter`} style={enterStyle(0)}>
+                {before}
+                <span className={s.highlight}>{hero.highlight}</span>
+                {after}
+              </h1>
+              <p className={`${home.heroSub} enter`} style={enterStyle(1)}>
+                {hero.sub}
+              </p>
+            </div>
+            <div className={`${home.heroActions} enter`} style={enterStyle(2)}>
               <BookButton arrow />
               <ButtonLink href="/work" variant="ghost">
                 {hero.secondary}
@@ -80,7 +79,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className={`${home.mediaWrap} enter`} style={enterStyle(4)}>
+          <div className={`${home.mediaWrap} enter`} style={enterStyle(3)}>
             <Showreel />
           </div>
         </div>

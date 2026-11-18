@@ -1,5 +1,4 @@
 export const hero = {
-  eyebrow: 'Design and engineering studio',
   headline: 'Websites and apps that do more than look good.',
   /** The part of the headline set on a highlighter. */
   highlight: 'do more than look good',

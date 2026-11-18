@@ -1,22 +1,14 @@
-/* The logos, side by side and still. Wrapped on small screens, spread over the row on large ones. */
+/* The logos, side by side, still, packed to the left with a fixed gap (never spread over the row). */
 
 .list {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
-  gap: var(--s-4) var(--s-5);
+  gap: var(--s-4);
   min-width: 0;
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-@media (min-width: 800px) {
-  .list {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: var(--s-3);
-  }
 }
 
 .cell {
